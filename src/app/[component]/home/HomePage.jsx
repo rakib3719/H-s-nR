@@ -1,4 +1,5 @@
 import Banner from "./Banner";
+import Facilities from "./Facilites";
 import OurRooms from "./OurRooms";
 import SpecialOffers from "./SpecialOffers";
 
@@ -10,6 +11,7 @@ const HomePage = () => {
 
             <OurRooms/>
             <SpecialOffers/>
+            <Facilities/>
         </div>
     );
 };

@@ -4,8 +4,8 @@ import { FaFacebook, FaInstagram, FaYoutube, FaWhatsapp, FaEnvelope, FaPhoneAlt 
 const Header = () => {
     
     return (
-        <div>
-            <div className="flex justify-between items-center p-4  text-sm">
+        <div className=''>
+            <div className="flex border-b-2 border-gray-500 justify-between items-center p-4  text-sm">
                 {/* Left Section (Email & Phone with Icons) */}
                 <div className="md:flex items-center gap-6">
                     <div className="text-white flex items-center gap-2">
