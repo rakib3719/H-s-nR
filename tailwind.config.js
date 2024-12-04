@@ -11,7 +11,7 @@ module.exports = {
         lato: '"Lato", sans-serif;',
         montserrat: '"Montserrat", sans-serif;',
         jost: '"Jost", sans-serif;'
-              },
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
