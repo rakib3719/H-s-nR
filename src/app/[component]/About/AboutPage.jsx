@@ -2,6 +2,7 @@ import Link from 'next/link';
 import React from 'react';
 import { FaAngleRight } from "react-icons/fa6";
 import AboutWelcome from './AboutWelcome';
+import OurTeam from './OurTeam';
 
 const AboutPage = () => {
     return (
@@ -32,7 +33,10 @@ const AboutPage = () => {
             </aside>
 
             <aside>
-                <AboutWelcome/>
+                <AboutWelcome />
+            </aside>
+            <aside>
+                <OurTeam />
             </aside>
         </section>
     );
