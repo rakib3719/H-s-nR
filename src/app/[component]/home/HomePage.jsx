@@ -5,7 +5,7 @@ import SpecialOffers from "./SpecialOffers";
 
 const HomePage = () => {
     return (
-        <div className="">
+        <div>
             <Banner />
 
 
