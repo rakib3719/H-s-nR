@@ -41,12 +41,12 @@ const Navbar = () => {
 
 
   return (
-    <div  className={`absolute top-0 left-0 w-full z-50 transition-all duration-300 ${
+    <div  className={`absolute top-0 left-0 w-full z-50 transition-all  duration-300 ${
         isScrolled
-          ? "sticky shadow-lg bg-black "
-          : "bg-transparent border-b border-gray-500"
+          ? "sticky shadow-lg border-t border-gray-500 text-white bg-black "
+          : "bg-transparent border-b bg-black border-gray-500"
       }`}>
-      <Header />
+      {/* <Header /> */}
       {/* Navbar */}
       <nav className="">
         <div className="max-w-[1500px] mx-auto px-6 sm:px-8 lg:px-12 flex justify-between items-center h-20">
@@ -64,7 +64,7 @@ const Navbar = () => {
               <Link
                 key={item.path}
                 href={item.path}
-                className={`hover:text-[#1E2A47] transition-all text-white duration-300 ease-in-out transform hover:scale-105 ${
+                className={`hover:text-[#1E2A47] transition-all ${!isScrolled ? `text-black`:    `text-white`} font-jost font-bold  duration-300 ease-in-out transform hover:scale-105 ${
                   pathname === item.path ? "text-[#233153]" : ""
                 }`}
               >
