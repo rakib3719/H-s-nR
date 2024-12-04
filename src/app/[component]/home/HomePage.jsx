@@ -11,7 +11,7 @@ const HomePage = () => {
 
             <OurRooms/>
             <SpecialOffers/>
-            <Facilities/>
+         <Facilities/>
         </div>
     );
 };
