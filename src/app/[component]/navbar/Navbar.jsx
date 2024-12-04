@@ -52,7 +52,7 @@ const Navbar = () => {
         <div className="max-w-[1500px] mx-auto px-6 sm:px-8 lg:px-12 flex justify-between items-center h-20">
 
           {/* Logo Section */}
-          <div className="flex items-center space-x-4">
+          <div className="flex font-bold items-center space-x-4">
             {/* <Image src={logo} alt="Logo" className="w-28 h-28 rounded-lg" /> */}
 
             Hotel-Seven-View
@@ -64,7 +64,7 @@ const Navbar = () => {
               <Link
                 key={item.path}
                 href={item.path}
-                className={`hover:text-[#1E2A47] transition-all ${!isScrolled ? `text-black`:    `text-white`} font-jost font-bold  duration-300 ease-in-out transform hover:scale-105 ${
+                className={`hover:text-[#1E2A47] transition-all ${!isScrolled ? `text-gray-400`:    `text-white`} font-jost font-bold  duration-300 ease-in-out transform hover:scale-105 ${
                   pathname === item.path ? "text-[#233153]" : ""
                 }`}
               >
