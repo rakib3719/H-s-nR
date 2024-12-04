@@ -11,8 +11,10 @@ import icon3 from '../../../asset/images/download.svg';
 
 const Facilities = () => {
   return (
-    <div className="mt-24 max-w-[1400px] mx-auto px-6">
+    <div className="py-32 max-w-[1400px] mx-auto px-6">
       <div className="flex flex-col lg:flex-row justify-between items-center gap-12">
+
+        
         {/* Left Section with Images */}
         <div className="relative flex justify-center lg:w-1/2">
           <Image src={image3} alt="Main Facility" width={300} className="rounded-lg shadow-lg" />
