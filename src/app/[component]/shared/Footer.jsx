@@ -1,3 +1,5 @@
+'use client'
+import { usePathname } from "next/navigation";
 import React from "react";
 import {
   FaFacebookF,
@@ -7,6 +9,14 @@ import {
 } from "react-icons/fa";
 
 const Footer = () => {
+  const pathname = usePathname();
+  
+  
+  // If the current pathname contains '/admin', do not render the footer
+  if (pathname.includes('/admin' || '/login')) {
+    return null;
+  }
+
   return (
     <footer className="bg-gray-900 text-gray-300">
       <div className="container mx-auto px-8 py-12 grid grid-cols-1 md:grid-cols-4 gap-8">
