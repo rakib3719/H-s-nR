@@ -15,6 +15,8 @@ module.exports = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        gold: "#D3A87C",
+        dark: "#000",
       },
     },
   },
