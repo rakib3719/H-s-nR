@@ -62,3 +62,14 @@ body {
 .carousel-button-right {
   right: 1rem;
 }
+
+@keyframes slideshow {
+  0% { opacity: 0; }
+  25% { opacity: 1; }
+  75% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+.animate-slideshow div {
+  animation: slideshow 24s infinite;
+}
