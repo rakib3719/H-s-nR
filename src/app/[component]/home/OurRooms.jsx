@@ -1,4 +1,5 @@
 'use client'
+import Link from "next/link";
 import React, { useEffect } from "react";
 const OurRooms = () => {
   useEffect(() => {
@@ -41,7 +42,7 @@ const OurRooms = () => {
       guests: "2 Guests",
       size: "35 Feet Size",
       price: "$50",
-      image:'https://themewant.com/products/wordpress/almaris/wp-content/uploads/2024/09/g_5-533x533.webp',
+      image: 'https://themewant.com/products/wordpress/almaris/wp-content/uploads/2024/09/g_5-533x533.webp',
     },
     {
       id: 2,
@@ -49,7 +50,7 @@ const OurRooms = () => {
       guests: "2 Guests",
       size: "35 Feet Size",
       price: "$50",
-      image:'https://themewant.com/products/wordpress/almaris/wp-content/uploads/2024/09/g_5-533x533.webp',
+      image: 'https://themewant.com/products/wordpress/almaris/wp-content/uploads/2024/09/g_5-533x533.webp',
     },
     {
       id: 3,
@@ -57,7 +58,7 @@ const OurRooms = () => {
       guests: "2 Guests",
       size: "35 Feet Size",
       price: "$50",
-      image:'https://themewant.com/products/wordpress/almaris/wp-content/uploads/2024/09/g_5-533x533.webp',
+      image: 'https://themewant.com/products/wordpress/almaris/wp-content/uploads/2024/09/g_5-533x533.webp',
     },
     {
       id: 4,
@@ -65,7 +66,7 @@ const OurRooms = () => {
       guests: "4 Guests",
       size: "50 Feet Size",
       price: "$100",
-      image:'https://themewant.com/products/wordpress/almaris/wp-content/uploads/2024/09/g_5-533x533.webp',
+      image: 'https://themewant.com/products/wordpress/almaris/wp-content/uploads/2024/09/g_5-533x533.webp',
     },
   ];
 
@@ -103,9 +104,13 @@ const OurRooms = () => {
                   <div className="absolute inset-0 bg-[#ab8965] flex flex-col items-center justify-center translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out">
                     <p className="text-white text-lg">From</p>
                     <h3 className="text-white text-4xl font-bold">{room.price}</h3>
-                    <button className="uppercase mt-4 px-6 py-2 border border-[#e9dfd55c] text-white hover:bg-white hover:text-[#a98e79] transition-colors duration-300">
-                      View Details
-                    </button>
+
+                    <Link href={'/details'}>
+                      <button className="uppercase mt-4 px-6 py-2 border border-[#e9dfd55c] text-white hover:bg-white hover:text-[#a98e79] transition-colors duration-300">
+                        View Details
+                      </button>
+                    </Link>
+
                   </div>
                 </div>
               </li>
