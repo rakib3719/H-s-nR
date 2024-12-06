@@ -4,9 +4,11 @@ import { FaHome, FaProjectDiagram, FaSignOutAlt, FaUserAlt, FaBars, FaTimes } fr
 import { IoIosAdd } from 'react-icons/io';
 import Link from 'next/link';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { signOut } from 'next-auth/react';
+
 import OverviewSection from '../[component]/admin/OverviewSection';
 import SweetAlert2 from 'react-sweetalert2';
+import { signOut } from 'next-auth/react';
+import { usePathname } from 'next/navigation';
 export default function RootLayout({ children }) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const queryClient = new QueryClient();
@@ -31,10 +33,18 @@ export default function RootLayout({ children }) {
       slug: 'allroom',
       icon: <FaProjectDiagram />,
     },
+    {
+      path: '/admin/addbooking',
+      name: 'Add booking',
+      slug: 'addbooking',
+      icon: <FaProjectDiagram />,
+    },
   ];
+const pathname = usePathname()
+  const currentPage = pathname.split('/')[2];
 
   const logOutHandle = async () => {
-    await signOut();
+ await signOut()
   };
 
   return (
@@ -66,10 +76,10 @@ export default function RootLayout({ children }) {
         <nav className="mt-6">
           <ul>
             {Links.map((link) => (
-              <li key={link.slug} className="px-6 py-3 hover:bg-yellow-300 flex items-center">
-                <Link href={link.path} className="flex items-center space-x-3">
+              <li key={link.slug} className={`px-6 py-3 hover:bg-black hover:text-white  ${currentPage === link.slug ? 'bg-black text-white' : ''} flex items-center`}>
+                <Link href={link.path}  className={`flex items-center space-x-3 `}>
                   {link.icon}
-                  <span className="text-black">{link.name}</span>
+                  <span className="">{link.name}</span>
                 </Link>
               </li>
             ))}

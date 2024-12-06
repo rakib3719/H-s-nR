@@ -50,7 +50,7 @@ export const GET = async (request) => {
       const skip = (page - 1) * limit;
 
       // Fetch paginated projects
-      projects = await projectCollection.find().skip(skip).limit(limit).toArray();
+      projects = await projectCollection.find().toArray();
       totalProjects = await projectCollection.countDocuments();
     } else {
       // Fetch all projects without pagination

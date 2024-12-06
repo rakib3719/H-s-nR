@@ -73,3 +73,6 @@ body {
 .animate-slideshow div {
   animation: slideshow 24s infinite;
 }
+body {
+  scroll-behavior: smooth;
+}
