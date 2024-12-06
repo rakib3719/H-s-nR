@@ -23,7 +23,7 @@ const AboutPage = () => {
                 <div className="mt-2 w-24 h-1 bg-orange-500 mx-auto"></div>
 
                 {/* Breadcrumb Navigation */}
-                <div className="flex items-center space-x-2 mt-4 text-lg font-medium">
+                <div className="flex items-center  space-x-2 mt-4 text-lg font-medium">
                     <Link href="/" className="hover:underline">
                         Home
                     </Link>

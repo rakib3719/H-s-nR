@@ -1,4 +1,6 @@
 
+import AllRooms from "../AllRooms/AllRooms";
+import GalleryPage from "../GalleryPage/GalleryPage";
 import Banner from "./Banner";
 import Facilities from "./Facilites";
 import OurRooms from "./OurRooms";
@@ -17,6 +19,8 @@ const HomePage = () => {
 
             </div>
             <RandomSection/>
+            <AllRooms/>
+            <GalleryPage/>
         </div>
     );
 };
