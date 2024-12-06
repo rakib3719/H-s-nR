@@ -34,9 +34,10 @@ const Navbar = () => {
   const menuItems = [
     { pathname: "Home", path: "/" },
     { pathname: "About Us", path: "/about" },
-    { pathname: "Our Projects", path: "/project" },
+    { pathname: "All room", path: "/allroom" },
     { pathname: "Contact Us", path: "/contact" },
-    { pathname: "Why Choose Us?", path: "/#why" },
+    { pathname: "Offer", path: "/offer" },
+    { pathname: "Gallary", path: "/gallery" },
   ];
 
 
