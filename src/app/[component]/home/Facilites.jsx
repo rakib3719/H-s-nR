@@ -11,7 +11,7 @@ import icon3 from '../../../asset/images/download.svg';
 
 const Facilities = () => {
   return (
-    <div className=" max-w-[1400px] mx-auto px-6">
+    <div className="py-24 max-w-[1400px] mx-auto px-6">
       <div className="flex flex-col lg:flex-row justify-between items-center gap-12">
 
         
@@ -39,9 +39,9 @@ const Facilities = () => {
         </div>
 
         {/* Right Section with Facilities */}
-        <div className="grid px-2 md:grid-cols-2 lg:w-1/2 gap-8">
+        <div className="grid px-3 md:grid-cols-2 lg:w-1/2 gap-8">
           {/* Facility 1 */}
-          <div className="flex items-center  gap-4  transition">
+          <div className="flex items-center pl-2  gap-4  transition">
             <MdTv className="text-[#ab8965] text-5xl" />
             <div>
               <h1 className="text-xl font-semibold">Cable TV</h1>
@@ -50,7 +50,7 @@ const Facilities = () => {
           </div>
 
           {/* Facility 2 */}
-          <div className="flex items-center gap-4  transition">
+          <div className="flex items-center pl-3 gap-4  transition">
             <PiDeskFill className="text-[#ab8965] text-5xl" />
             <div>
               <h1 className="text-xl font-semibold">Work Desk</h1>

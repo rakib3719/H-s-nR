@@ -25,7 +25,7 @@ const Login = () => {
             email,
             password,
             redirect: true,
-            callbackUrl: "/dashboard",
+            callbackUrl: "/admin",
         });
 
         if (result.error) {

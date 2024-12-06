@@ -112,6 +112,7 @@
 'use client';
 import Link from 'next/link';
 import React, { useState } from 'react';
+import { FaAngleRight } from 'react-icons/fa6';
 
 const AllRooms = () => {
   const rooms = [
@@ -187,7 +188,39 @@ const AllRooms = () => {
   };
 
   return (
-    <section className="bg-[#fff5ed] py-10 text-center">
+
+  <div>
+     <aside
+  className="relative h-[300px] flex flex-col justify-center items-center text-center text-white"
+  style={{
+    backgroundImage: `url('https://themewant.com/products/wordpress/almaris/wp-content/uploads/2024/09/4-768x576-1.webp')`,
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'cover',
+  }}
+>
+  {/* Black Overlay */}
+  <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+
+  {/* Title Section */}
+  <h1 className="text-4xl font-bold uppercase z-10">All Room</h1>
+
+  {/* Orange Line */}
+  <div className="mt-2 w-24 h-1 bg-orange-500 mx-auto z-10"></div>
+
+  {/* Breadcrumb Navigation */}
+  <div className="flex items-center space-x-2 mt-4 text-lg font-medium z-10">
+    <Link href="/" className="hover:underline">
+      Home
+    </Link>
+    <FaAngleRight className="text-sm" />
+    <span>All Room</span>
+  </div>
+</aside>
+
+    <section className="bg-[#fff5ed] pt-24 py-10 text-center">
+
+
       <h2 className="text-4xl font-semibold text-black mt-2">All Rooms</h2>
 
       {/* Rooms Grid */}
@@ -252,6 +285,7 @@ const AllRooms = () => {
         </button>
       </div>
     </section>
+  </div>
   );
 };
 

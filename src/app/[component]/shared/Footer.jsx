@@ -133,7 +133,7 @@ const Footer = () => {
 
       <div className="border-t border-gray-700 mt-8 py-4 text-center">
         <p className="text-sm">
-          © {new Date().getFullYear()} Quick Bites. All rights reserved.
+          © {new Date().getFullYear()}Hotel seven view. All rights reserved.
         </p>
       </div>
     </footer>
