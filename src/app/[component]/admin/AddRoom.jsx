@@ -86,9 +86,16 @@ const AddRoom = () => {
               />
             </div>
           </div>
-
-          {/* Room Amenities */}
           <div className="mb-6">
+              <label className="block text-xl font-medium text-gray-700">Price</label>
+              <input
+                type="number"
+                name='price'
+                className="mt-2 w-full p-4 border-2 border-gray-300 rounded-lg bg-gray-50"
+              />
+            </div>
+          {/* Room Amenities */}
+          {/* <div className="mb-6">
             <label className="block text-xl font-medium text-gray-700">Room Amenities</label>
             <div className="mt-4 grid grid-cols-2 md:grid-cols-3 gap-4">
               {[
@@ -112,7 +119,7 @@ const AddRoom = () => {
                 </div>
               ))}
             </div>
-          </div>
+          </div> */}
 
           {/* Room Description */}
           <div className="mb-6">

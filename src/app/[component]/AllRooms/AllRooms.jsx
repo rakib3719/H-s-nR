@@ -395,6 +395,7 @@ const AllRooms = ({getRooms}) => {
         </div>
       </aside>
     </section>
+ 
   );
 };
 

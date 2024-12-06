@@ -39,13 +39,14 @@ import ReservationCard from './ReservationCard';
 const DetailsPage = () => {
     return (
         <section className="">
+            
             <aside className="flex ">
                 <div className="flex-1">
                     {/* <ImageSlider /> */}
                 </div>
 
                 {/* RoomSature and ReservationCard */}
-                <div className="flex">
+                <div className="lg:flex">
                     <RoomSature />
                     <ReservationCard />
                 </div>
