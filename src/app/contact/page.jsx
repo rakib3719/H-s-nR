@@ -1,10 +1,49 @@
-import React from 'react';
+'use client'
+import React, { useState } from 'react';
 import { FaAngleRight } from "react-icons/fa";
 import Link from "next/link";
+import { toast, ToastContainer } from 'react-toastify';
+import axios from 'axios';
 
 const ContactPage = () => {
+    const [loader, setLoader] = useState(false)
+    const handleSubmit =async e =>{
+        setLoader(true)
+        e.preventDefault()
+        const form = e.target;
+        const name = form.name.value;
+        const email = form.email.value || '';
+        const number = form.number.value;
+        const subject = form.subject.value;
+        const message = form.message.value;
+        const data = {
+            name,
+            email,
+            number,
+            subject,
+            message
+        }
+        try {
+           const response = await axios.post('/api/contact', data) 
+           console.log(response, "success kina chekckora dorakr");
+          if(response?.data?.status === 200)
+            {
+                toast.success('Message sent successfully')
+            setLoader(false)
+          }
+          else{
+            setLoader(false)
+          }
+        } catch (error) {
+            toast.error(error?.message)
+            setLoader(false)
+        }
+        
+
+    }
     return (
         <section>
+            <ToastContainer/>
             {/* Hero Section */}
             <aside
                 className="relative h-[300px] flex flex-col justify-center items-center text-center bg-fixed text-white"
@@ -31,11 +70,13 @@ const ContactPage = () => {
                 <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
                     <div>
                         <h2 className="text-4xl font-serif text-[#ab8965]">Send us a message</h2>
-                        <form className="mt-8 space-y-6">
+                        <form onSubmit={handleSubmit} className="mt-8 space-y-6">
                             <div>
                                 <label className="text-gray-700 font-medium">Your name</label>
                                 <input
+                                required
                                     type="text"
+                                    name='name'
                                     placeholder="Enter your name"
                                     className="mt-2 w-full p-3 border border-gray-300 rounded focus:ring-2 focus:ring-[#ab8965] focus:outline-none"
                                 />
@@ -44,21 +85,34 @@ const ContactPage = () => {
                                 <label className="text-gray-700 font-medium">Your email</label>
                                 <input
                                     type="email"
+                                    name='email'
                                     placeholder="Enter your email"
+                                    className="mt-2 w-full p-3 border border-gray-300 rounded focus:ring-2 focus:ring-[#ab8965] focus:outline-none"
+                                />
+                            </div>
+                            <div>
+                                <label className="text-gray-700 font-medium">Your Phone Number</label>
+                                <input
+                                    type="tel"
+                                    name='number'
+                                    placeholder="Enter your Phone Number"
                                     className="mt-2 w-full p-3 border border-gray-300 rounded focus:ring-2 focus:ring-[#ab8965] focus:outline-none"
                                 />
                             </div>
                             <div>
                                 <label className="text-gray-700 font-medium">Subject</label>
                                 <input
+                                name='subject'
                                     type="text"
                                     placeholder="Enter subject"
                                     className="mt-2 w-full p-3 border border-gray-300 rounded focus:ring-2 focus:ring-[#ab8965] focus:outline-none"
+                                    required
                                 />
                             </div>
                             <div>
                                 <label className="text-gray-700 font-medium">Your message (optional)</label>
                                 <textarea
+                                name='message'
                                     rows="5"
                                     placeholder="Enter your message"
                                     className="mt-2 w-full p-3 border border-gray-300 rounded focus:ring-2 focus:ring-[#ab8965] focus:outline-none"
@@ -68,7 +122,7 @@ const ContactPage = () => {
                                 type="submit"
                                 className="w-full bg-black text-white py-3 rounded-lg font-medium hover:bg-[#333333] transition"
                             >
-                                Submit
+                            {loader ? 'loading...': 'Submit'}
                             </button>
                         </form>
                     </div>

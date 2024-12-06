@@ -1,7 +1,7 @@
 'use client';
 import { useState } from 'react';
 import { FaHome, FaProjectDiagram, FaSignOutAlt, FaUserAlt, FaBars, FaTimes } from 'react-icons/fa';
-import { IoIosAdd } from 'react-icons/io';
+import { IoIosAdd, IoMdAdd } from 'react-icons/io';
 import Link from 'next/link';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
@@ -9,6 +9,7 @@ import OverviewSection from '../[component]/admin/OverviewSection';
 import SweetAlert2 from 'react-sweetalert2';
 import { signOut } from 'next-auth/react';
 import { usePathname } from 'next/navigation';
+import { FaBookBible, FaBuilding, FaMessage } from 'react-icons/fa6';
 export default function RootLayout({ children }) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const queryClient = new QueryClient();
@@ -31,23 +32,29 @@ export default function RootLayout({ children }) {
       path: '/admin/allroom',
       name: 'All Room',
       slug: 'allroom',
-      icon: <FaProjectDiagram />,
+      icon: <FaBuilding />,
     },
     {
       path: '/admin/addbooking',
       name: 'Add booking',
       slug: 'addbooking',
-      icon: <FaProjectDiagram />,
+      icon: <IoMdAdd />,
     },
     {
       path: '/admin/allbooking',
-      name: 'Add Booking',
+      name: 'Booking management',
       slug: 'allbooking',
-      icon: <FaProjectDiagram />,
+      icon: <FaBookBible />,
+    },
+    {
+      path: '/admin/message',
+      name: 'Message',
+      slug: 'message',
+      icon: <FaMessage />,
     },
   ];
 const pathname = usePathname()
-  const currentPage = pathname.split('/')[2];
+  const currentPage = pathname.split('/')[2] || 'null';
 
   const logOutHandle = async () => {
  await signOut()
@@ -111,11 +118,11 @@ const pathname = usePathname()
         </div>
         <nav className="mt-6">
           <ul>
-            {Links.map((link) => (
-              <li key={link.slug} className="px-6 py-3 hover:bg-yellow-300 flex items-center">
-                <Link href={link.path} className="flex items-center space-x-3">
+          {Links.map((link) => (
+              <li key={link.slug} className={`px-6 py-3 hover:bg-black hover:text-white  ${currentPage === link.slug ? 'bg-black text-white' : ''} flex items-center`}>
+                <Link href={link.path}  className={`flex items-center space-x-3 `}>
                   {link.icon}
-                  <span className="text-black">{link.name}</span>
+                  <span className="">{link.name}</span>
                 </Link>
               </li>
             ))}
