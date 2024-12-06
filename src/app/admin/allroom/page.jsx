@@ -7,7 +7,8 @@ import axios from 'axios';
 import { motion } from 'framer-motion';
 import { toast, ToastContainer } from 'react-toastify';
 import { imageUpload } from '@/app/utilites/PhotoUpload';
-
+import { FaDeleteLeft } from 'react-icons/fa6';
+import { MdBrowserUpdated } from "react-icons/md";
 
 const fetchRooms = async () => {
   const response = await fetch('/api/room');
@@ -140,52 +141,44 @@ const Page = () => {
   return (
     <div className="min-h-screen bg-gray-100 py-12">
       <ToastContainer />
-      <div className="max-w-7xl mx-auto px-6 py-12">
+      <div className="max-w-7xl mx-auto lg:px-6 py-12">
         <motion.h1
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
-          className="text-4xl font-extrabold text-gray-900 text-center mb-12"
+          className= "text-xl md:text-4xl font-extrabold text-gray-900 text-center mb-12"
         >
           Manage Rooms
         </motion.h1>
 
         <div className="overflow-x-auto">
-          <table className="min-w-full bg-white shadow-lg rounded-lg">
+          <table className="min-w-full table-xs md:table-md lg:table-auto bg-white shadow-lg rounded-lg">
             <thead>
               <tr>
-                <th className="py-3 px-6 text-left text-lg font-semibold text-black">Room Name</th>
-                <th className="py-3 px-6 text-left text-lg font-semibold text-black">Availability</th>
-                <th className="py-3 px-6 text-left text-lg font-semibold text-black">Description</th>
-                <th className="py-3 px-6 text-left text-lg font-semibold text-black">Actions</th>
+                <th className="py-3 md:px-6 text-left text-lg font-semibold text-black">Room Name</th>
+                
+                <th className="py-3 md:px-6 text-left text-lg font-semibold text-black">Room Number</th>
+                <th className="py-3 md:px-6 text-left text-lg font-semibold text-black">Actions</th>
               </tr>
             </thead>
             <tbody>
               {rooms.map((room) => (
                 <tr key={room._id} className="border-b hover:bg-gray-100">
-                  <td className="py-4 text-black px-6">{room.name}</td>
-                  <td className="py-4 px-6">
-                    <span
-                      className={`inline-block px-3 py-1 text-sm font-semibold rounded-full ${
-                        room.available ? 'bg-green-200 text-green-800' : 'bg-red-200 text-red-800'
-                      }`}
-                    >
-                      {room.available ? 'Yes' : 'No'}
-                    </span>
-                  </td>
-                  <td className="py-4 text-black px-6">{room.description.substring(0, 12)}...</td>
-                  <td className="py-4 px-6">
+                  <td className="py-4 text-black md:px-6">{room.name}</td>
+                  
+                  <td className="py-4 text-black px-6">{room.roomNumber}</td>
+                  <td className="py-4 flex gap-2 px-6">
                     <button
                       onClick={() => openModal(room)}
                       className="px-4 py-2 bg-yellow-500 text-white font-semibold rounded-lg hover:bg-yellow-600 transition-all"
                     >
-                      Update
+                     <MdBrowserUpdated />
                     </button>
                     <button
                       onClick={() => handleDelete(room._id)}
                       className="ml-2 px-4 py-2 bg-red-500 text-white font-semibold rounded-lg hover:bg-red-600 transition-all"
                     >
-                      Delete
+                      <FaDeleteLeft/>
                     </button>
                   </td>
                 </tr>
