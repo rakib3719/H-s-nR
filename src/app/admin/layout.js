@@ -42,7 +42,7 @@ export default function RootLayout({ children }) {
       {/* Top Navbar */}
       <div className="fixed top-0 left-0 w-full h-16 bg-black text-white flex items-center justify-between px-6 z-50">
         <h1 className="text-xl font-bold">
-          <Link href="/">Hills Motel</Link>
+          <Link href="/">Hotel seven view</Link>
         </h1>
         <div className="flex items-center space-x-4">
           {/* <p className="italic text-sm text-gray-400">"Opportunities don't happen. You create them."</p> */}

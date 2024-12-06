@@ -1,5 +1,6 @@
 import React from 'react';
-import DetailsPage from '../[component]/detailsPage/detailsPage';
+import DetailsPage from '../[component]/detailsPage/DetailsPage';
+
 
 const page = () => {
     return (
