@@ -12,9 +12,10 @@ const MobileMenu = () => {
   const menuItems = [
     { pathname: "Home", path: "/" },
     { pathname: "About Us", path: "/about" },
-    { pathname: "Our Projects", path: "/project" },
+    { pathname: "All room", path: "/allroom" },
     { pathname: "Contact Us", path: "/contact" },
-    { pathname: "Why Choose Us?", path: "/#why" },
+    { pathname: "Offer", path: "/offer" },
+    { pathname: "Gallary", path: "/Gallary" },
   ];
 
   const toggleMenu = () => {
@@ -83,7 +84,7 @@ const MobileMenu = () => {
 
         {/* Footer Section */}
         <div className="absolute bottom-0 left-0 w-full bg-[#424242] p-4 text-center text-gray-400 text-sm">
-          <p>&copy; 2024 Rime Real state</p>
+          <p>&copy; 2024 Hotel seven view</p>
         </div>
       </div>
     </>

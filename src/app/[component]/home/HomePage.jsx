@@ -1,4 +1,5 @@
 
+import GalleryPage from "../GalleryPage/GalleryPage";
 import Banner from "./Banner";
 import Facilities from "./Facilites";
 import OurRooms from "./OurRooms";
@@ -12,11 +13,12 @@ const HomePage = () => {
             <OurRooms/>
             <SpecialOffers/>
             <div>
-                <h1 className="text-center mt-44 font-bold text-3xl py16">Facilites</h1>
+                <h1 className="text-center mt-44 font-bold text-3xl ">Facilites</h1>
             <Facilities/>
 
             </div>
             <RandomSection/>
+           
         </div>
     );
 };

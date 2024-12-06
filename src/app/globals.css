@@ -45,7 +45,7 @@ body {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(0, 0, 0, 0.5);
+  /* background: rgba(0, 0, 0, 0.5); */
   border: none;
   color: white;
   font-size: 2rem;
@@ -61,4 +61,18 @@ body {
 
 .carousel-button-right {
   right: 1rem;
+}
+
+@keyframes slideshow {
+  0% { opacity: 0; }
+  25% { opacity: 1; }
+  75% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+.animate-slideshow div {
+  animation: slideshow 24s infinite;
+}
+body {
+  scroll-behavior: smooth;
 }
