@@ -12,7 +12,7 @@ const RoomSature = () => {
       {/* Title and Description Section */}
       <div className="text-center">
         <h1 className="text-3xl font-bold">Studio Sanctuary</h1>
-        <div className="flex justify-center items-center space-x-4 text-sm text-gray-600 mt-2">
+        <div className="flex justify-center flex-wrap items-center space-x-4 text-sm text-gray-600 mt-2">
           <div className="flex items-center">
             <FaUserFriends className="mr-1 text-[#a88654]" /> 2 Guests
           </div>
