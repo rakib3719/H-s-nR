@@ -7,8 +7,8 @@ import { FaCheckCircle } from 'react-icons/fa';
 
 const Banner = () => {
   return (
-    <div className="relative bg-[#fff5ed] overflow-hidden">
-      <div className="lg:flex max-w-[1500px] mx-auto px-12 items-center py-16 gap-12">
+    <div className="relative pt-28 bg-[#fff5ed] overflow-hidden">
+      <div className="lg:flex max-w-[1500px] mx-auto px-4 lg:px-12 items-center py-16 gap-12 lg:text-left text-center">
         {/* Left Section: Text and CTA */}
         <motion.section
           className="flex-1"
@@ -62,7 +62,7 @@ const Banner = () => {
           <Image
             src={bannerImg}
             alt="Hotel Seven View Banner"
-            className="rounded-lg shadow-lg hover:shadow-xl transition-all"
+            className=" transition-all"
           />
         </motion.section>
       </div>

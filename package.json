@@ -9,9 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "date-fns": "^4.1.0",
     "@tanstack/react-query": "^5.62.2",
     "axios": "^1.7.9",
+    "date-fns": "^4.1.0",
     "framer-motion": "^11.13.1",
     "mongodb": "^6.11.0",
     "next": "15.0.3",
