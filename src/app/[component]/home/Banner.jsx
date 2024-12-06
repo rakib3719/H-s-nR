@@ -62,7 +62,7 @@ const Banner = () => {
           <Image
             src={bannerImg}
             alt="Hotel Seven View Banner"
-            className="rounded-lg shadow-lg hover:shadow-xl transition-all"
+            className=""
           />
         </motion.section>
       </div>
