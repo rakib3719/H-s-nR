@@ -39,6 +39,12 @@ export default function RootLayout({ children }) {
       slug: 'addbooking',
       icon: <FaProjectDiagram />,
     },
+    {
+      path: '/admin/allbooking',
+      name: 'Add Booking',
+      slug: 'allbooking',
+      icon: <FaProjectDiagram />,
+    },
   ];
 const pathname = usePathname()
   const currentPage = pathname.split('/')[2];
