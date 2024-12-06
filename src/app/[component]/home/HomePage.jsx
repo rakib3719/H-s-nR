@@ -13,7 +13,7 @@ const HomePage = () => {
             <OurRooms/>
             <SpecialOffers/>
             <div>
-                <h1 className="text-center mt-44 font-bold text-3xl py16">Facilites</h1>
+                <h1 className="text-center font-bold text-3xl py-10">Facilites</h1>
             <Facilities/>
 
             </div>

@@ -11,7 +11,7 @@ import icon3 from '../../../asset/images/download.svg';
 
 const Facilities = () => {
   return (
-    <div className="py-32 max-w-[1400px] mx-auto px-6">
+    <div className=" max-w-[1400px] mx-auto px-6">
       <div className="flex flex-col lg:flex-row justify-between items-center gap-12">
 
         
