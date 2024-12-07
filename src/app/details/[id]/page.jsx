@@ -1,7 +1,8 @@
 import React from 'react';
-import DetailsPage from '../[component]/detailsPage/DetailsPage';
+
 import Link from 'next/link';
 import { FaAngleRight } from 'react-icons/fa6';
+import DetailsPage from '@/app/[component]/detailsPage/DetailsPage';
 
 
 const page = () => {
