@@ -9,6 +9,7 @@ import { toast, ToastContainer } from 'react-toastify';
 import { imageUpload } from '@/app/utilites/PhotoUpload';
 import { FaDeleteLeft } from 'react-icons/fa6';
 import { MdBrowserUpdated } from "react-icons/md";
+import Loader from '@/app/[component]/loader/Loader';
 
 const fetchRooms = async () => {
   const response = await fetch('/api/room');
@@ -133,7 +134,10 @@ const Page = () => {
     }
   };
 
-  if (isLoading) return <p>Loading...</p>;
+  if (isLoading) return <div>
+
+    <Loader/>
+  </div>;
   if (isError) return <p>Error loading rooms</p>;
 
   const rooms = data.data;

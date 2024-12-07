@@ -8,6 +8,7 @@ import ImageSlider from './ImageSlider';
 import RoomSature from './RoomSature';
 import ReservationCard from './ReservationCard';
 import axios from 'axios';
+import Loader from '../loader/Loader';
 
 const DetailsPage = ({params}) => {
 
@@ -37,7 +38,9 @@ loadData(params?.id)
 },[])
 
 if(loader){
-    return <p>Loading....</p>
+    return <div>
+        <Loader/>
+    </div>
 }
     
     return (
