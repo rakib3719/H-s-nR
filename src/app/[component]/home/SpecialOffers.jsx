@@ -24,7 +24,7 @@ const SpecialOffers = () => {
     return (
         <section
             ref={ref}
-            className="flex flex-col md:flex-row justify-around items-center gap-8 py-10 px-4 md:px-10 overflow-hidden"
+            className="flex flex-col md:flex-row justify-between px-4 lg:px-12 items-center gap-8 py-10 overflow-hidden"
         >
             {/* Text Section */}
             <motion.aside

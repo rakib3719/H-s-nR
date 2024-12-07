@@ -41,7 +41,7 @@ const params = useParams();
         </div>
     </aside>
 
-        <div className='mt-40'>
+        <div className=''>
 
             <DetailsPage params={params}/>
         </div>

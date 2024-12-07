@@ -4,7 +4,7 @@ import { MdCable, MdWifi, MdBalcony, MdBathtub, MdShower } from 'react-icons/md'
 import { AiOutlineDesktop, AiOutlineSafety } from 'react-icons/ai';
 import { CgSmartHomeRefrigerator } from "react-icons/cg";
 import { MdLocationCity } from "react-icons/md";
-import { PiToiletDuotone } from "react-icons/pi";
+import { FaPersonWalkingDashedLineArrowRight } from 'react-icons/fa6';
 
 
 const RoomSature = ({data}) => {
@@ -12,7 +12,7 @@ const RoomSature = ({data}) => {
   
 
   return (
-    <div className="max-w-4xl mx-auto py-10 px-4 text-gray-800">
+    <div className=" text-gray-800">
       {/* Title and Description Section */}
       <div className="text-center">
         <h1 className="text-3xl font-bold">{data?.name}</h1>
@@ -27,7 +27,7 @@ const RoomSature = ({data}) => {
             <FaDoorOpen className="mr-1 text-[#a88654]" /> Room Number: {data?.roomNumber}
           </div>
           <div className="flex items-center">
-            <PiToiletDuotone className="mr-1 text-[#a88654]" /> {data?.washrooms
+            <FaPersonWalkingDashedLineArrowRight className="mr-1 text-[#a88654]" /> {data?.washrooms
             } WashRooms
           </div>
         </div>
