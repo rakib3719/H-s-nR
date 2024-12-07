@@ -16,7 +16,7 @@ const [loading, setLoading] = useState(false)
     checkOutDate: defaultCheckOutDate,
     pricePerRoom: 50, // Default price per room
     name: '',
-    status: 'accept',
+    status: 'pending',
     email: '',
     phone: '',
     roomNumber: '', // New field for room number
@@ -69,10 +69,10 @@ const [loading, setLoading] = useState(false)
     e.preventDefault();
     console.log('Booking Data:', formData);
 try {
-    const response = await axios.post('/api/booking')
+    const response = await axios.post('/api/booking', formData)
 console.log(response, 'ok mama');
 
-if(response.status === 200){
+if(response?.data?.data?.insertedId){
     toast.success('Booking added sucessfully')
     setLoading(false)
 }
