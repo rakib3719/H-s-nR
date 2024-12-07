@@ -5,6 +5,7 @@ import axios from 'axios';
 import { toast, ToastContainer } from 'react-toastify';
 import { FcViewDetails } from "react-icons/fc";
 import { IoIosCheckbox, IoMdClose } from 'react-icons/io';
+import Loader from '@/app/[component]/loader/Loader';
 
 // Axios request for fetching data
 const fetchBookings = async (page, status) => {
@@ -59,7 +60,9 @@ const BookingTable = () => {
     setSelectedBooking(booking);
   };
 
-  if (isLoading) return <p>Loading...</p>;
+  if (isLoading) return <div>
+    <Loader/>
+  </div>;
   if (isError) return <p>Error fetching bookings</p>;
 
   return (

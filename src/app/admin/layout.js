@@ -89,7 +89,7 @@ const pathname = usePathname()
         <nav className="mt-6">
           <ul>
             {Links.map((link) => (
-              <li key={link.slug} className={`px-6 py-3 hover:bg-black hover:text-white  ${currentPage === link.slug ? 'bg-black text-white' : ''} flex items-center`}>
+              <li key={link.slug} className={`px-6 cursor-pointer py-3 hover:bg-black hover:text-white  ${currentPage === link.slug ? 'bg-black text-white' : ''} flex items-center`}>
                 <Link href={link.path}  className={`flex items-center space-x-3 `}>
                   {link.icon}
                   <span className="">{link.name}</span>
