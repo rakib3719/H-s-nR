@@ -41,7 +41,7 @@ const DetailsPage = ({ params }) => {
 
             <aside className="">
                 <div className="">
-                    <ImageSlider data={data} />
+                    <ImageSlider data={data} loader={loader} />
                 </div>
 
                 {/* RoomSature and ReservationCard */}
