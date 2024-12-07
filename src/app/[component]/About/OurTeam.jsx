@@ -29,7 +29,7 @@ const OurTeam = () => {
   ];
 
   return (
-    <aside className="bg-[#fff5ed] text-white py-12 px-6">
+    <aside className="bg-[#fff5ed] text-white py-12 px-4 md:px-6">
       <div className="text-center mb-12 text-black">
         <h1 className="text-4xl font-bold mb-2">Behind the Scene</h1>
         <h4 className="text-xl font-semibold">Our Team</h4>

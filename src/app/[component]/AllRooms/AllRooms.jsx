@@ -6,6 +6,8 @@ import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import { FaAngleRight } from 'react-icons/fa6';
 import axios from 'axios';
+import Loader from '../loader/Loader';
+
 
 const AllRooms = ({getRooms}) => {
   const [rooms, setRooms] = useState([]);
@@ -36,7 +38,13 @@ const AllRooms = ({getRooms}) => {
   }, [currentPage]);
 
   if (loading) {
-    return <h1>loading..</h1>
+    return  <div className='flex justify-center items-center min-h-screen'>
+      <Loader/>
+    </div>
+
+
+
+    
   }
 
   const handleNextPage = () => {

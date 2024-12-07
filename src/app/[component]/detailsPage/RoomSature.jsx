@@ -4,31 +4,35 @@ import { MdCable, MdWifi, MdBalcony, MdBathtub, MdShower } from 'react-icons/md'
 import { AiOutlineDesktop, AiOutlineSafety } from 'react-icons/ai';
 import { CgSmartHomeRefrigerator } from "react-icons/cg";
 import { MdLocationCity } from "react-icons/md";
+import { FaPersonWalkingDashedLineArrowRight } from 'react-icons/fa6';
 
 
-const RoomSature = () => {
+const RoomSature = ({data}) => {
+  console.log(data, 'ase por mama baginma ahare kahare kta dkfh jdaf');
+  
+
   return (
-    <div className="max-w-4xl mx-auto py-10 px-4 text-gray-800">
+    <div className=" text-gray-800">
       {/* Title and Description Section */}
       <div className="text-center">
-        <h1 className="text-3xl font-bold">Studio Sanctuary</h1>
+        <h1 className="text-3xl font-bold">{data?.name}</h1>
         <div className="flex justify-center flex-wrap items-center space-x-4 text-sm text-gray-600 mt-2">
           <div className="flex items-center">
-            <FaUserFriends className="mr-1 text-[#a88654]" /> 2 Guests
+            <FaUserFriends className="mr-1 text-[#a88654]" />max Capacity: {data?.maxCapacity}
           </div>
           <div className="flex items-center">
-            <FaRulerCombined className="mr-1 text-[#a88654]" /> 35 Feet Size
+            <FaRulerCombined className="mr-1 text-[#a88654]" /> {data?.squareFeet}Square Feet Size
           </div>
           <div className="flex items-center">
-            <FaDoorOpen className="mr-1 text-[#a88654]" /> Connecting Rooms
+            <FaDoorOpen className="mr-1 text-[#a88654]" /> Room Number: {data?.roomNumber}
           </div>
           <div className="flex items-center">
-            <FaBed className="mr-1 text-[#a88654]" /> 1 King Bed
+            <FaPersonWalkingDashedLineArrowRight className="mr-1 text-[#a88654]" /> {data?.washrooms
+            } WashRooms
           </div>
         </div>
         <p className="mt-6 text-gray-500 leading-6">
-          Ea sunt tempor dolor id do nisi est sint culpa in eiusmod sed aliqua elit nisi nulla mollit proident minim commodo
-          aute elit ut mollit velit exercitation cillum quis sed dolore quis laboris nostrud exercitation magna.
+         {data?.description}
         </p>
       </div>
 

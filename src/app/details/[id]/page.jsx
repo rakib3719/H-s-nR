@@ -1,11 +1,20 @@
-import React from 'react';
+
+'use client'
 
 import Link from 'next/link';
 import { FaAngleRight } from 'react-icons/fa6';
 import DetailsPage from '@/app/[component]/detailsPage/DetailsPage';
+import { useParams } from 'next/navigation';
 
 
-const page = () => {
+
+const Detailpage = () => {
+
+const params = useParams();
+
+
+
+
     return (
        <div>
          <aside
@@ -32,12 +41,12 @@ const page = () => {
         </div>
     </aside>
 
-        <div className='mt-40'>
+        <div className=''>
 
-            <DetailsPage/>
+            <DetailsPage params={params}/>
         </div>
        </div>
     );
 };
 
-export default page;
+export default Detailpage;

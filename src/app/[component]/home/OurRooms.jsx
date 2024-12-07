@@ -5,16 +5,18 @@
 import axios from 'axios';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
+import Loader from '../loader/Loader';
 
 const OurRooms = () => {
   const [rooms, setRooms] = useState([]);
   const [loading,setLoading]=useState(true)
   useEffect(() => {
-    
+    setLoading(true)
     axios
       .get(`/api/ourroom`)
       .then((response) => {
         setRooms(response.data.rooms || []);
+        setLoading(false)
       })
       .catch((error) => console.error('Error fetching rooms:', error));
   }, []);
@@ -69,18 +71,20 @@ const OurRooms = () => {
   }, [rooms]);
 
   return (
-    <section className="bg-[#fff5ed] py-10 text-center">
+    <section className="bg-[#fff5ed] py-10 text-center max-w-[1500px] md:px-4 lg:px-12 m-auto">
       <h1 className="text-[#a98e79] uppercase text-sm tracking-wider">
         Rooms & Suites
       </h1>
       <h2 className="text-4xl font-semibold text-black mt-2">Our Rooms</h2>
 
-      {rooms.length === 0 ? (
+      {loading && <Loader/> }
+
+      { !loading && rooms.length === 0 ? (
         <p className="mt-8 text-gray-500">No rooms available at the moment.</p>
       ) : (
         <div className="carousel mt-8 relative">
           <button
-            className="carousel-button carousel-button-left absolute top-1/2 -translate-y-1/2 left-4 bg-black text-white p-2 rounded-full z-10"
+            className="carousel-button carousel-button-left absolute top-1/2 -translate-y-1/2 left-4 bg-black text-white p-2 rounded-l-3xl rounded-r-md z-10"
             aria-label="Previous Slide"
           >
             ❮
@@ -130,7 +134,7 @@ const OurRooms = () => {
             </ul>
           </div>
           <button
-            className="carousel-button carousel-button-right absolute top-1/2 -translate-y-1/2 right-4 bg-black text-white p-2 rounded-full z-10"
+            className="carousel-button carousel-button-right absolute top-1/2 -translate-y-1/2 right-0 bg-black text-white p-2 rounded-r-3xl rounded-l-md z-10"
             aria-label="Next Slide"
           >
             ❯

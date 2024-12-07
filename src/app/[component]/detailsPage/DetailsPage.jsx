@@ -1,42 +1,48 @@
-// import React from 'react';
-// import ImageSlider from './ImageSlider';
-// import RoomSature from './RoomSature';
-// import ReservationCard from './ReservationCard';
-
-// const DetailsPage = () => {
-//     return (
-//         <section>
-//             <aside>
-//                 {/* <ImageSlider /> */}
-
-//                 <div className='flex gap-2'>
-//                     <br />
-                    
-//                     <RoomSature />
-//                     <ReservationCard/>
-//                 </div>
-
-//             </aside>
-
-//         </section>
-//     );
-// };
-
-// export default DetailsPage;
+'use client'
 
 
 
 
-
-
-
-
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import ImageSlider from './ImageSlider';
 import RoomSature from './RoomSature';
 import ReservationCard from './ReservationCard';
+import axios from 'axios';
+import Loader from '../loader/Loader';
 
-const DetailsPage = () => {
+const DetailsPage = ({params}) => {
+
+    const [data, setData] = useState({})
+const [loader, setLoader] = useState(false)
+const bookingData = {
+    name: data?.name,
+    price: data?.price,
+    roomNumber : data?.roomNumber
+  }
+
+const loadData = async(id)=>{
+setLoader(true)
+    try {
+        const resp =await axios.get(`/api/details/${id}`)
+        setData(resp?.data)
+        setLoader(false)
+        
+    } catch (error) {
+        setLoader(false)
+    }
+   
+}
+useEffect(()=>{
+loadData(params?.id)
+
+},[])
+
+if(loader){
+    return <div>
+        <Loader/>
+    </div>
+}
+    
     return (
         <section className="">
             
@@ -44,11 +50,11 @@ const DetailsPage = () => {
                 <div className="flex-1">
                     {/* <ImageSlider /> */}
                 </div>
-
+<h1>dsfdsafdfsa{data?.price}</h1>
                 {/* RoomSature and ReservationCard */}
                 <div className="lg:flex">
-                    <RoomSature />
-                    <ReservationCard />
+                    <RoomSature data={data} />
+                    <ReservationCard bookingData={bookingData}/>
                 </div>
             </aside>
         </section>
