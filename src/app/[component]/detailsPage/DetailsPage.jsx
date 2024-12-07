@@ -36,19 +36,21 @@ import ImageSlider from './ImageSlider';
 import RoomSature from './RoomSature';
 import ReservationCard from './ReservationCard';
 
-const DetailsPage = () => {
+
+
+const DetailsPage = ({data}) => {
     return (
         <section className="">
             
-            <aside className="flex ">
-                <div className="flex-1">
-                    {/* <ImageSlider /> */}
+            <aside className="">
+                <div className="">
+                    <ImageSlider imagesArray={data.images} />
                 </div>
 
                 {/* RoomSature and ReservationCard */}
                 <div className="lg:flex">
-                    <RoomSature />
-                    <ReservationCard />
+                    <RoomSature data={data} />
+                    <ReservationCard data={data} />
                 </div>
             </aside>
         </section>

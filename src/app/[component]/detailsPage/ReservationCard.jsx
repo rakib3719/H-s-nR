@@ -5,7 +5,7 @@ import { useState } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
-const ReservationCard = () => {
+const ReservationCard = ({data}) => {
   const currentDate = new Date();
   const defaultCheckOutDate = new Date(currentDate);
   defaultCheckOutDate.setDate(currentDate.getDate() + 1); // Set Check-Out to the next day

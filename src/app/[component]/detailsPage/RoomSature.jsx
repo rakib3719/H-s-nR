@@ -6,7 +6,7 @@ import { CgSmartHomeRefrigerator } from "react-icons/cg";
 import { MdLocationCity } from "react-icons/md";
 
 
-const RoomSature = () => {
+const RoomSature = ({data}) => {
   return (
     <div className="max-w-4xl mx-auto py-10 px-4 text-gray-800">
       {/* Title and Description Section */}
