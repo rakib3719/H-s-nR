@@ -13,7 +13,7 @@ const AboutWelcome = () => {
     });
 
     return (
-        <div className="p-8 bg-[#f8f3ee] text-gray-800 font-jost">
+        <div className=" p-4 md:p-8 bg-[#f8f3ee] text-gray-800 font-jost">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           
                 <div className="text-center md:text-left">
@@ -55,7 +55,7 @@ const AboutWelcome = () => {
                     </div>
 
              
-                    <div className="flex flex-col-reverse items-center gap-3 mt-6">
+                    <div className="flex flex-col-reverse items-center gap-3 lg:mt-6">
                         <Image
                             alt="welcome image"
                             width={250}
