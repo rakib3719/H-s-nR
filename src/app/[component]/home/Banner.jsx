@@ -62,7 +62,7 @@ const Banner = () => {
           <Image
             src={bannerImg}
             alt="Hotel Seven View Banner"
-            className=" transition-all"
+            className=""
           />
         </motion.section>
       </div>

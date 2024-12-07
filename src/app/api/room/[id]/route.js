@@ -3,7 +3,6 @@ import { connectDB } from "@/app/lib/connectDB";
 import { ObjectId } from "mongodb";
 import { NextResponse } from "next/server";
 
-
 export const DELETE = async (req, { params }) => {
     try {
       const db = await connectDB();

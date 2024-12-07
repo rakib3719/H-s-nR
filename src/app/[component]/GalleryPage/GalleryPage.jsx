@@ -2,7 +2,6 @@
 
 import Link from 'next/link';
 import { FaAngleRight } from 'react-icons/fa6';
-import ImageGallery from './ImageGallery';
 import Gallery from './ImageGallery';
 ;
 
@@ -44,11 +43,11 @@ const GalleryPage = () => {
                 </div>
             </aside>
 
-            {/* Gallery Content */}
+
             <div className="">
                 <aside>
                     <div className="max-w-7xl mx-auto p-6">
-                        {/* <FilterBar filters={filters} activeFilter={activeFilter} setActiveFilter={setActiveFilter} /> */}
+                      
                         <Gallery />
                     </div>
                 </aside>

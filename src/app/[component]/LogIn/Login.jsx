@@ -30,15 +30,22 @@ const Login = () => {
         e.preventDefault();
         setError("");
 
-        const result = await signIn("credentials", {
-            email,
-            password,
-            redirect: true,
-            callbackUrl: "/admin",
-        });
+        try {
+            const result = await signIn("credentials", {
+                email,
+                password,
+                redirect: false, // Set to false for handling redirection explicitly
+            });
 
-        if (result.error) {
-            setError(result.error);
+            if (result.error) {
+                setError(result.error); // Display the error
+            } else {
+                // Redirect manually after successful login
+                window.location.href = "/admin";
+            }
+        } catch (err) {
+            setError("An unexpected error occurred. Please try again.");
+            console.error("Login error:", err);
         }
     };
 
