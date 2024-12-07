@@ -90,7 +90,7 @@ else{
   return (
     <form
       onSubmit={handleSubmit}
-      className="max-w-5xl mx-auto p-6 rounded-lg shadow-md"
+      className="p-6 rounded-lg shadow-md"
       style={{ backgroundColor: '#ab8965', color: 'black' }}
     >
         <ToastContainer/>

@@ -8,7 +8,7 @@ import img2 from '../../../asset/random-section/4-5.webp'
 
 const RandomSection = () => {
     return (
-        <section className="py-10">
+        <section className="py-10 max-w-[1400px] mx-auto px-4 lg:px-12">
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                 {/* Card 1 */}
                 <div className="relative w-full h-[300px] group overflow-hidden">
