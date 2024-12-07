@@ -13,7 +13,8 @@ try {
 //   const uri = mongodb+srv://task2:eE7XOM82sh76Bjbc@cluster0.lel6e.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0;
 
 
-  const uri = `${process.env.MONGO_URI}`
+  // const uri = `${process.env.MONGO_URI}`
+  const uri = "mongodb+srv://task2:eE7XOM82sh76Bjbc@cluster0.ngsjczb.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
     const client = new MongoClient(uri, {
         serverApi: {
           version: ServerApiVersion.v1,
