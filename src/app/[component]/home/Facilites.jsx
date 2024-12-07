@@ -37,7 +37,7 @@ const Facilities = () => {
         </div>
 
         {/* Right Section with Facilities */}
-        <div className="grid px-3 md:grid-cols-2 lg:w-1/2 gap-8">
+        <div className="grid md:px-3 md:grid-cols-2 lg:w-1/2 gap-8">
           {/* Facility 1 */}
           <div className="flex items-center pl-2  gap-4  transition">
             <MdTv className="text-[#ab8965] text-5xl" />

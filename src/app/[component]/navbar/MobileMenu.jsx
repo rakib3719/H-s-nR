@@ -15,7 +15,7 @@ const MobileMenu = () => {
     { pathname: "All room", path: "/allroom" },
     { pathname: "Contact Us", path: "/contact" },
     { pathname: "Offer", path: "/offer" },
-    { pathname: "Gallary", path: "/Gallary" },
+    { pathname: "Gallary", path: "/gallery" },
   ];
 
   const toggleMenu = () => {

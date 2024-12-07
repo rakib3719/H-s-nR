@@ -1,5 +1,4 @@
 
-
 'use client';
 import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
@@ -65,7 +64,7 @@ const SpecialOffers = () => {
 
             {/* Image Section */}
             <motion.aside
-                className="flex flex-col md:flex-row items-center justify-center gap-4"
+                className="flex flex-col md:flex-row items-center justify-center gap-4 w-full"
                 initial="hidden"
                 animate={isInView ? "visible" : "hidden"}
                 variants={imageVariant}

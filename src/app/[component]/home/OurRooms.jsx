@@ -70,7 +70,7 @@ const OurRooms = () => {
   }, [rooms]);
 
   return (
-    <section className="bg-[#fff5ed] py-10 text-center max-w-[1500px] px-4 lg:px-12 m-auto">
+    <section className="bg-[#fff5ed] py-10 text-center max-w-[1500px] md:px-4 lg:px-12 m-auto">
       <h1 className="text-[#a98e79] uppercase text-sm tracking-wider">
         Rooms & Suites
       </h1>
