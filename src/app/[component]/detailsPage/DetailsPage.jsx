@@ -9,45 +9,49 @@ import RoomSature from './RoomSature';
 import ReservationCard from './ReservationCard';
 import axios from 'axios';
 
-const DetailsPage = ({ params }) => {
+const DetailsPage = ({params}) => {
 
     const [data, setData] = useState({})
-    const [loader, setLoader] = useState(false)
+const [loader, setLoader] = useState(false)
+const bookingData = {
+    name: data?.name,
+    price: data?.price,
+    roomNumber : data?.roomNumber
+  }
 
-
-    const loadData = async (id) => {
-        setLoader(true)
-        try {
-            const resp = await axios.get(`/api/details/${id}`)
-            setData(resp?.data)
-            setLoader(false)
-
-        } catch (error) {
-            setLoader(false)
-        }
-
+const loadData = async(id)=>{
+setLoader(true)
+    try {
+        const resp =await axios.get(`/api/details/${id}`)
+        setData(resp?.data)
+        setLoader(false)
+        
+    } catch (error) {
+        setLoader(false)
     }
-    useEffect(() => {
-        loadData(params?.id)
-
-    }, [])
-
    
+}
+useEffect(()=>{
+loadData(params?.id)
+
+},[])
+
+if(loader){
+    return <p>Loading....</p>
+}
     
-
-
     return (
         <section className="">
-
-            <aside className="">
-                <div className="">
-                    <ImageSlider data={data} />
+            
+            <aside className="flex ">
+                <div className="flex-1">
+                    {/* <ImageSlider /> */}
                 </div>
-
+<h1>dsfdsafdfsa{data?.price}</h1>
                 {/* RoomSature and ReservationCard */}
-                <div className=" max-w-7xl mx-auto py-10 px-4 lg:flex gap-2">
+                <div className="lg:flex">
                     <RoomSature data={data} />
-                    <ReservationCard />
+                    <ReservationCard bookingData={bookingData}/>
                 </div>
             </aside>
         </section>
