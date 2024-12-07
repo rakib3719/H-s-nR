@@ -1,56 +1,53 @@
-// import React from 'react';
-// import ImageSlider from './ImageSlider';
-// import RoomSature from './RoomSature';
-// import ReservationCard from './ReservationCard';
-
-// const DetailsPage = () => {
-//     return (
-//         <section>
-//             <aside>
-//                 {/* <ImageSlider /> */}
-
-//                 <div className='flex gap-2'>
-//                     <br />
-                    
-//                     <RoomSature />
-//                     <ReservationCard/>
-//                 </div>
-
-//             </aside>
-
-//         </section>
-//     );
-// };
-
-// export default DetailsPage;
+'use client'
 
 
 
 
-
-
-
-
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import ImageSlider from './ImageSlider';
 import RoomSature from './RoomSature';
 import ReservationCard from './ReservationCard';
+import axios from 'axios';
+
+const DetailsPage = ({ params }) => {
+
+    const [data, setData] = useState({})
+    const [loader, setLoader] = useState(false)
 
 
+    const loadData = async (id) => {
+        setLoader(true)
+        try {
+            const resp = await axios.get(`/api/details/${id}`)
+            setData(resp?.data)
+            setLoader(false)
 
-const DetailsPage = ({data}) => {
+        } catch (error) {
+            setLoader(false)
+        }
+
+    }
+    useEffect(() => {
+        loadData(params?.id)
+
+    }, [])
+
+   
+    
+
+
     return (
         <section className="">
-            
+
             <aside className="">
                 <div className="">
-                    <ImageSlider imagesArray={data.images} />
+                    <ImageSlider data={data} />
                 </div>
 
                 {/* RoomSature and ReservationCard */}
-                <div className="lg:flex">
+                <div className=" max-w-7xl mx-auto py-10 px-4 lg:flex gap-2">
                     <RoomSature data={data} />
-                    <ReservationCard data={data} />
+                    <ReservationCard />
                 </div>
             </aside>
         </section>

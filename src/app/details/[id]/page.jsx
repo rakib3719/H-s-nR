@@ -1,25 +1,20 @@
-import React from 'react';
+
+'use client'
 
 import Link from 'next/link';
 import { FaAngleRight } from 'react-icons/fa6';
 import DetailsPage from '@/app/[component]/detailsPage/DetailsPage';
-import axios from 'axios';
-
-const getdata=async (id) => {
-    let resp=await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/details/${id}`)
-    return resp.data
-}
+import { useParams } from 'next/navigation';
 
 
-const Page = async({params}) => {
-    const {id}=params
-    let data =await getdata(id)
-    console.log('dk',data);
 
-    if (!data) {
-        return <h1>loading...</h1>
-    }
-    
+const Detailpage = () => {
+
+const params = useParams();
+
+
+
+
     return (
        <div>
          <aside
@@ -46,12 +41,12 @@ const Page = async({params}) => {
         </div>
     </aside>
 
-        <div className='mt-40'>
+        <div className=''>
 
-            <DetailsPage data={data}/>
+            <DetailsPage params={params}/>
         </div>
        </div>
     );
 };
 
-export default Page;
+export default Detailpage;

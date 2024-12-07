@@ -4,7 +4,7 @@ import axios from 'axios';
 
 
 let getdata = async (params) => {
-    let data = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/room`)
+    let data = await axios.get(`https://hotel-seven-view.vercel.app/api/room`)
     return data.data
 
 }

@@ -11,10 +11,8 @@ import icon3 from '../../../asset/images/download.svg';
 
 const Facilities = () => {
   return (
-    <div className="py-24 max-w-[1400px] mx-auto px-6">
+    <div className="max-w-[1400px] mx-auto px-4 lg:px-12 ">
       <div className="flex flex-col lg:flex-row justify-between items-center gap-12">
-
-        
         {/* Left Section with Images */}
         <div className="relative flex justify-center lg:w-1/2">
           <Image src={image3} alt="Main Facility" width={300} className="rounded-lg shadow-lg" />
@@ -30,10 +28,10 @@ const Facilities = () => {
             width={200}
             className="absolute bottom-10 left-6 rounded-lg shadow-md"
           />
-          <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 rounded-lg">
-            <div className="text-white text-center">
-              <h1 className="text-3xl font-bold">Seven View</h1>
-              <p className="text-[#ab8965] mt-2">★★★★★</p>
+          <div className="absolute inset-0 flex items-center justify-center rounded-lg">
+            <div className="text-white text-center bg-[#00000031] rounded-md p-2">
+              <h1 className="text-3xl text-white font-bold">Seven View</h1>
+              <p className="text-[white] mt-2">★★★★★</p>
             </div>
           </div>
         </div>
