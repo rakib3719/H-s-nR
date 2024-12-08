@@ -10,51 +10,52 @@ import ReservationCard from './ReservationCard';
 import axios from 'axios';
 import Loader from '../loader/Loader';
 
-const DetailsPage = ({params}) => {
+const DetailsPage = ({ params }) => {
 
     const [data, setData] = useState({})
-const [loader, setLoader] = useState(false)
-const bookingData = {
-    name: data?.name,
-    price: data?.price,
-    roomNumber : data?.roomNumber
-  }
-
-const loadData = async(id)=>{
-setLoader(true)
-    try {
-        const resp =await axios.get(`/api/details/${id}`)
-        setData(resp?.data)
-        setLoader(false)
-        
-    } catch (error) {
-        setLoader(false)
+    const [loader, setLoader] = useState(false)
+    const bookingData = {
+        name: data?.name,
+        price: data?.price,
+        roomNumber: data?.roomNumber
     }
-   
-}
-useEffect(()=>{
-loadData(params?.id)
 
-},[])
+    const loadData = async (id) => {
+        setLoader(true)
+        try {
+            const resp = await axios.get(`/api/details/${id}`)
+            setData(resp?.data)
+            setLoader(false)
 
-if(loader){
-    return <div>
-        <Loader/>
-    </div>
-}
-    
+        } catch (error) {
+            setLoader(false)
+        }
+
+    }
+    useEffect(() => {
+        loadData(params?.id)
+
+    }, [])
+
+    if (loader) {
+        return <div>
+            <Loader />
+        </div>
+    }
+
     return (
         <section className="">
-            
-            <aside className="flex ">
-                <div className="flex-1">
-                    {/* <ImageSlider /> */}
+
+            <aside className="">
+                <div className="">
+                    <ImageSlider data={data} loader={loader} />
+
                 </div>
-<h1>dsfdsafdfsa{data?.price}</h1>
+       
                 {/* RoomSature and ReservationCard */}
-                <div className="lg:flex">
+                <div className=" max-w-[1400px] mx-auto lg:flex justify-between px-4">
                     <RoomSature data={data} />
-                    <ReservationCard bookingData={bookingData}/>
+                    <ReservationCard bookingData={bookingData} />
                 </div>
             </aside>
         </section>

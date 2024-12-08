@@ -114,7 +114,6 @@ const ReservationCard = ({ bookingData }) => {
         {[{ label: 'Name', key: 'name' }, { label: 'Email', key: 'email' }].map(({ label, key }) => (
           <div key={key}>
 
-          <h1>h1 {bookingData?.price}</h1>
             <label className="block text-sm mb-2">{label}</label>
             <input
               type={key === 'email' ? 'email' : 'text'}
@@ -246,3 +245,10 @@ const ReservationCard = ({ bookingData }) => {
 };
 
 export default  ReservationCard ;
+
+
+
+
+
+
+
