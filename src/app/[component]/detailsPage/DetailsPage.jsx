@@ -8,12 +8,17 @@ import ImageSlider from './ImageSlider';
 import RoomSature from './RoomSature';
 import ReservationCard from './ReservationCard';
 import axios from 'axios';
+import Loader from '../loader/Loader';
 
 const DetailsPage = ({ params }) => {
 
     const [data, setData] = useState({})
     const [loader, setLoader] = useState(false)
-
+    const bookingData = {
+        name: data?.name,
+        price: data?.price,
+        roomNumber: data?.roomNumber
+    }
 
     const loadData = async (id) => {
         setLoader(true)
@@ -32,9 +37,11 @@ const DetailsPage = ({ params }) => {
 
     }, [])
 
-   
-    
-
+    if (loader) {
+        return <div>
+            <Loader />
+        </div>
+    }
 
     return (
         <section className="">
@@ -42,12 +49,13 @@ const DetailsPage = ({ params }) => {
             <aside className="">
                 <div className="">
                     <ImageSlider data={data} loader={loader} />
-                </div>
 
+                </div>
+                <h1>{data?.price}</h1>
                 {/* RoomSature and ReservationCard */}
-                <div className=" max-w-7xl mx-auto py-10 px-4 lg:flex gap-2">
+                <div className=" max-w-[1400px] mx-auto lg:flex justify-between px-4">
                     <RoomSature data={data} />
-                    <ReservationCard />
+                    <ReservationCard bookingData={bookingData} />
                 </div>
             </aside>
         </section>

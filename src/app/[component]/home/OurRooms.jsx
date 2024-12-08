@@ -5,6 +5,7 @@
 import axios from 'axios';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
+import Loader from '../loader/Loader';
 
 const OurRooms = () => {
   const [rooms, setRooms] = useState([]);
@@ -76,7 +77,7 @@ const OurRooms = () => {
       </h1>
       <h2 className="text-4xl font-semibold text-black mt-2">Our Rooms</h2>
 
-      {loading && <h1>loading...</h1> }
+      {loading && <Loader/> }
 
       { !loading && rooms.length === 0 ? (
         <p className="mt-8 text-gray-500">No rooms available at the moment.</p>

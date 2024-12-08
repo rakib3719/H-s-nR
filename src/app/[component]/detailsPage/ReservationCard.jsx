@@ -5,21 +5,24 @@ import { useState } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-const AddBookingForm = ({}) => {
+const ReservationCard = ({ bookingData }) => {
   const currentDate = new Date();
   const defaultCheckOutDate = new Date(currentDate);
   defaultCheckOutDate.setDate(currentDate.getDate() + 1);
-const [loading, setLoading] = useState(false)
+
+  const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     checkInDate: currentDate,
     checkOutDate: defaultCheckOutDate,
-    pricePerRoom: 50, // Default price per room
+    pricePerRoom: bookingData?.price ? Number(bookingData.price) : 0, // Default price per room
     name: '',
+    roomName: bookingData?.roomName || '',
     status: 'pending',
     email: '',
     phone: '',
-    roomNumber: '', // New field for room number
+    roomNumber: bookingData?.roomNumber || '', // New field for room number
     adults: 1,
     children: 0,
     rooms: 1,
@@ -30,6 +33,9 @@ const [loading, setLoading] = useState(false)
       sauna: false,
     },
   });
+
+  // Debug bookingData
+  console.log('Booking Data:', bookingData);
 
   const handleServiceChange = (serviceName) => {
     setFormData((prev) => ({
@@ -64,27 +70,34 @@ const [loading, setLoading] = useState(false)
     return totalCost;
   };
 
-  const handleSubmit = async(e) => {
-    setLoading(true)
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Booking Data:', formData);
-try {
-    const response = await axios.post('/api/booking', formData)
-console.log(response, 'ok mama');
+    setLoading(true);
 
-if(response?.data?.data?.insertedId){
-    toast.success('Booking added sucessfully')
-    setLoading(false)
-}
-else{
-    setLoading(false)
-    toast.error('something went wrong plz try again')
-}
-} catch (error) {
-    toast.error(error?.message)
-}
+    try {
+      const response = await axios.post('/api/booking', formData);
 
-
+      if (response?.data?.data?.insertedId) {
+        toast.success('Booking added successfully!');
+        setFormData((prev) => ({
+          ...prev,
+          name: '',
+          email: '',
+          phone: '',
+          rooms: 1,
+          children: 0,
+          adults: 1,
+          extraBeds: 0,
+          services: { petFriendly: false, spa: false, sauna: false },
+        }));
+      } else {
+        toast.error('Something went wrong. Please try again.');
+      }
+    } catch (error) {
+      toast.error(error?.message || 'An error occurred.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -93,13 +106,15 @@ else{
       className="p-6 rounded-lg shadow-md"
       style={{ backgroundColor: '#ab8965', color: 'black' }}
     >
-        <ToastContainer/>
+      <ToastContainer />
       <h2 className="text-2xl font-bold text-center mb-6">Add Booking</h2>
 
       {/* Name, Email, Phone, Room Number */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
         {[{ label: 'Name', key: 'name' }, { label: 'Email', key: 'email' }].map(({ label, key }) => (
           <div key={key}>
+
+          <h1>h1 {bookingData?.price}</h1>
             <label className="block text-sm mb-2">{label}</label>
             <input
               type={key === 'email' ? 'email' : 'text'}
@@ -110,7 +125,6 @@ else{
             />
           </div>
         ))}
-        {/* Phone Field */}
         <div>
           <label className="block text-sm mb-2">Phone</label>
           <input
@@ -121,15 +135,13 @@ else{
             required
           />
         </div>
-        {/* Room Number Field */}
         <div>
           <label className="block text-sm mb-2">Room Number</label>
           <input
             type="text"
+            readOnly
             value={formData.roomNumber}
-            onChange={(e) => handleInputChange('roomNumber', e.target.value)}
             className="w-full p-2 rounded-md text-black"
-            required
           />
         </div>
       </div>
@@ -157,58 +169,62 @@ else{
           <label className="block text-sm mb-2">Price per Room</label>
           <input
             type="number"
+            readOnly
             value={formData.pricePerRoom}
-            onChange={(e) => handleInputChange('pricePerRoom', parseInt(e.target.value, 10))}
             className="w-full p-2 rounded-md text-black"
-            min="1"
           />
         </div>
       </div>
 
       {/* Adults, Children, Rooms, Extra Beds */}
-      {[{ label: 'Adults', key: 'adults' }, { label: 'Children', key: 'children' }, { label: 'Rooms', key: 'rooms' }, { label: 'Extra Beds', key: 'extraBeds' }].map(
-        ({ label, key }) => (
-          <div className="flex items-center justify-between mb-4" key={key}>
-            <span>{label}</span>
-            <div className="flex items-center space-x-3">
-              <button
-                type="button"
-                className="px-3 py-1 bg-black text-white rounded-md"
-                onClick={() => handleInputChange(key, Math.max(0, formData[key] - 1))}
-              >
-                -
-              </button>
-              <span>{formData[key]}</span>
-              <button
-                type="button"
-                className="px-3 py-1 bg-black text-white rounded-md"
-                onClick={() => handleInputChange(key, formData[key] + 1)}
-              >
-                +
-              </button>
-            </div>
+      {[
+        { label: 'Adults', key: 'adults' },
+        { label: 'Children', key: 'children' },
+        { label: 'Rooms', key: 'rooms' },
+        { label: 'Extra Beds', key: 'extraBeds' },
+      ].map(({ label, key }) => (
+        <div className="flex items-center justify-between mb-4" key={key}>
+          <span>{label}</span>
+          <div className="flex items-center space-x-3">
+            <button
+              type="button"
+              className="px-3 py-1 bg-black text-white rounded-md"
+              onClick={() => handleInputChange(key, Math.max(0, formData[key] - 1))}
+            >
+              -
+            </button>
+            <span>{formData[key]}</span>
+            <button
+              type="button"
+              className="px-3 py-1 bg-black text-white rounded-md"
+              onClick={() => handleInputChange(key, formData[key] + 1)}
+            >
+              +
+            </button>
           </div>
-        )
-      )}
+        </div>
+      ))}
 
       {/* Extra Services */}
       <div className="mb-4">
         <h3 className="font-bold mb-2">Extra Services:</h3>
-        {[{ label: 'Pet-Friendly Amenities', key: 'petFriendly', cost: 10 }, { label: 'Spa Services', key: 'spa', cost: 20 }, { label: 'Sauna/Steam Room', key: 'sauna', cost: 25 }].map(
-          ({ label, key, cost }) => (
-            <label key={key} className="flex items-center justify-between mb-2">
-              <span>
-                {label} <span className="font-bold">${cost}/Room</span>
-              </span>
-              <input
-                type="checkbox"
-                checked={formData.services[key]}
-                onChange={() => handleServiceChange(key)}
-                className="form-checkbox"
-              />
-            </label>
-          )
-        )}
+        {[
+          { label: 'Pet-Friendly Amenities', key: 'petFriendly', cost: 10 },
+          { label: 'Spa Services', key: 'spa', cost: 20 },
+          { label: 'Sauna/Steam Room', key: 'sauna', cost: 25 },
+        ].map(({ label, key, cost }) => (
+          <label key={key} className="flex items-center justify-between mb-2">
+            <span>
+              {label} <span className="font-bold">${cost}/Room</span>
+            </span>
+            <input
+              type="checkbox"
+              checked={formData.services[key]}
+              onChange={() => handleServiceChange(key)}
+              className="form-checkbox"
+            />
+          </label>
+        ))}
       </div>
 
       {/* Total Cost */}
@@ -220,13 +236,20 @@ else{
       <button
         type="submit"
         disabled={loading}
-        className={`w-full py-2 rounded-md ${loading && 'bg-white text-gray-500'} font-bold`}
+        className={`w-full py-2 rounded-md ${loading ? 'bg-white text-gray-500' : 'bg-black text-white'} font-bold`}
         style={{ backgroundColor: 'black', color: '#ab8965' }}
       >
-    { loading?'loading...' : "Add Booaking" }
+        {loading ? 'Loading...' : 'Add Booking'}
       </button>
     </form>
   );
 };
 
-export default AddBookingForm;
+export default  ReservationCard ;
+
+
+
+
+
+
+
