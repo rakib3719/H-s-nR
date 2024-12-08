@@ -31,6 +31,7 @@ const Page = () => {
         name: form.name.value,
         roomNumber: form.roomNumber.value,
         roomSize: form.roomSize.value,
+        price: form.price.value,
         maxCapacity: form.maxCapacity.value,
         squareFeet: form.squareFeet.value,
         washrooms: form.washrooms.value,
@@ -104,7 +105,7 @@ const Page = () => {
                   type="text"
                   name="name"
                   required
-                  placeholder="e.g., 300 sq.ft."
+                  placeholder="Room Name"
                   className="mt-2 w-full p-4 border-2 border-gray-300 rounded-lg bg-gray-50 text-gray-900 focus:ring-2 focus:ring-yellow-500"
                 />
               </div>
@@ -164,6 +165,47 @@ const Page = () => {
                   placeholder="How many guests?"
                   className="mt-2 w-full p-4 border-2 border-gray-300 rounded-lg bg-gray-50 text-gray-900 focus:ring-2 focus:ring-yellow-500"
                 />
+              </div>
+              <div>
+                <label className="block text-xl font-medium text-gray-700">Square Feet</label>
+                <input
+                  type="text"
+                  name="squareFeet"
+                  required
+                  placeholder="e.g., 300 sq.ft."
+                  className="mt-2 w-full p-4 border-2 border-gray-300 rounded-lg bg-gray-50 text-gray-900 focus:ring-2 focus:ring-yellow-500"
+                />
+              </div>
+              <div>
+                <label className="block text-xl font-medium text-gray-700">Number of Washrooms</label>
+                <input
+                  type="number"
+                  name="washrooms"
+                  required
+                  className="mt-2 w-full p-4 border-2 border-gray-300 rounded-lg bg-gray-50 text-gray-900 focus:ring-2 focus:ring-yellow-500"
+                />
+              </div>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div>
+                <label className="block text-xl font-medium text-gray-700">Price</label>
+                <input
+                  type="number"
+                  name="price"
+                  required
+                  placeholder="Price"
+                  className="mt-2 w-full p-4 border-2 border-gray-300 rounded-lg bg-gray-50 text-gray-900 focus:ring-2 focus:ring-yellow-500"
+                />
+              </div>
+              <div>
+                {/* <label className="block text-xl font-medium text-gray-700">Maximum Capacity</label>
+                <input
+                  type="number"
+                  name="maxCapacity"
+                  required
+                  placeholder="How many guests?"
+                  className="mt-2 w-full p-4 border-2 border-gray-300 rounded-lg bg-gray-50 text-gray-900 focus:ring-2 focus:ring-yellow-500"
+                /> */}
               </div>
               <div>
                 <label className="block text-xl font-medium text-gray-700">Square Feet</label>
