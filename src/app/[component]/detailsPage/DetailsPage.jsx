@@ -51,7 +51,7 @@ const DetailsPage = ({ params }) => {
                     <ImageSlider data={data} loader={loader} />
 
                 </div>
-                <h1>{data?.price}</h1>
+       
                 {/* RoomSature and ReservationCard */}
                 <div className=" max-w-[1400px] mx-auto lg:flex justify-between px-4">
                     <RoomSature data={data} />
