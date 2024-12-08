@@ -8,8 +8,6 @@ import { FaPersonWalkingDashedLineArrowRight } from 'react-icons/fa6';
 
 
 const RoomSature = ({data}) => {
-  console.log(data, 'ase por mama baginma ahare kahare kta dkfh jdaf');
-  
 
   return (
     <div className=" text-gray-800">

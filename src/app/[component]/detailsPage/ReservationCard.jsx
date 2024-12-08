@@ -246,3 +246,10 @@ const ReservationCard = ({ bookingData }) => {
 };
 
 export default  ReservationCard ;
+
+
+
+
+
+
+

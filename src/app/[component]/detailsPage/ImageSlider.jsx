@@ -63,7 +63,10 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import { Pagination, Navigation } from 'swiper/modules';
 
-const ImageSlider = ({ data }) => {
+const ImageSlider = ({ data,loader}) => {
+  if (loader) {
+    return <div className='text-center'> <h1>Images Loading...</h1> </div>
+  }
   if (!data.images || data.images.length === 0) {
     return (
       <div className="text-center mt-10 text-gray-500">
