@@ -20,7 +20,7 @@ const Banner = () => {
             Hotel Seven View
           </h1>
           <p className="font-lato text-gray-700 mt-6 text-lg">
-            Immerse yourself in the epitome of luxury at **Hotel Seven View**, your premier destination in New York. 
+            Immerse yourself in the epitome of luxury at **Hotel Seven View**, your premier destination in Uttara Dhaka. 
             Our hotel redefines elegance and comfort, offering an exquisite escape for discerning travelers.
           </p>
           <ul className="mt-6 space-y-2">
