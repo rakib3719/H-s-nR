@@ -35,7 +35,7 @@ const SpecialOffers = () => {
                 <h1 className="text-sm uppercase text-[#ab8965] tracking-wide">
                     Hurry Up
                 </h1>
-                <h5 className="font-semibold text-3xl md:text-4xl text-black mt-2">
+                <h5 className="font-semibold text-3xl dark:text-white md:text-4xl text-black mt-2">
                     Special Offers
                 </h5>
                 <div className="flex flex-col md:flex-row gap-6 mt-6">
