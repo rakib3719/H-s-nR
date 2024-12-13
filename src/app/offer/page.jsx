@@ -38,25 +38,28 @@ const page = () => {
       ];
     return (
         <div className="max-w-[1400px] mx-auto ">
-      <aside
-                className="relative h-[300px] flex flex-col justify-center items-center text-center bg-fixed text-white"
+        <aside
+                className="relative bg-cover bg-center h-64 flex items-center justify-center"
                 style={{
-                    backgroundImage: `url('https://demo.leebrosus.com/moteling/wp-content/uploads/2022/03/offer-page-5.jpg')`,
-                    backgroundPosition: 'center',
-                    backgroundRepeat: 'no-repeat',
-                    backgroundSize: 'cover',
+                    backgroundImage: `url('https://demo.leebrosus.com/moteling/wp-content/uploads/2022/01/h8_bg-counter.jpeg')`,
                 }}
             >
-                <h1 className="text-4xl font-bold uppercase">Offer</h1>
-                <div className="mt-2 w-24 h-1 bg-orange-500 mx-auto"></div>
-                <div className="flex items-center space-x-2 mt-4 text-lg font-medium">
-                    <Link href="/" className="hover:underline">
-                        Home
-                    </Link>
-                    <FaAngleRight className="text-sm" />
-                    <span>Offer</span>
+                {/* Overlay */}
+                <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+
+                {/* Content */}
+                <div className="relative z-10 text-center text-white">
+                    <h1 className="text-4xl font-bold">Offer</h1>
+                    <div className="flex items-center justify-center space-x-2 text-sm font-medium mt-2">
+                        <Link href="/">
+                            <span className="hover:underline text-gray-300">Home</span>
+                        </Link>
+                        <FaAngleRight className="text-gray-400" />
+                        <span className="text-white">Offer</span>
+                    </div>
                 </div>
             </aside>
+
 
 
             <section className="bg-[#f9f7f4]">

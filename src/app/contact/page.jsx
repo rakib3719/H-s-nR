@@ -153,12 +153,14 @@ const ContactPage = () => {
             <div className="relative w-full h-[400px] mt-12">
                 <iframe
                     className="absolute top-0 left-0 w-full h-full"
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2433.343062412883!2d-0.12764768444626874!3d51.50735147963696!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48761b18f2fbaadf%3A0xd586d7a100e8590d!2sBig%20Ben!5e0!3m2!1sen!2suk!4v1631420230932!5m2!1sen!2suk"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2530.831093754182!2d90.39738916335912!3d23.86420262984067!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c4241f7aaaab%3A0x68971d6834042aeb!2sRajlokkhi%20Complex!5e0!3m2!1sen!2sbd!4v1734104969610!5m2!1sen!2sbd"
                     width="100%"
                     height="100%"
                     allowFullScreen=""
                     loading="lazy"
                 ></iframe>
+
+
             </div>
         </section>
     );
