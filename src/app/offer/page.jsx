@@ -62,9 +62,9 @@ const page = () => {
 
 
 
-            <section className="bg-[#f9f7f4]">
+            <section className="bg-[#f9f7f4] dark:bg-white">
 
-                <h1 className="font-bold text-3xl font-jost text-center py-16">Enjoy a special holiday with
+                <h1 className="font-bold  text-3xl font-jost text-center py-16">Enjoy a special holiday with
                 our hot deals</h1>
 
 
@@ -116,7 +116,7 @@ const page = () => {
             </div>
              
             </section>
-            <section className="bg-[#f9f7f4] mt-14">
+            <section className="bg-[#f9f7f4] dark:bg-white mt-14">
 
                 
 
@@ -169,7 +169,7 @@ const page = () => {
             </div>
              
             </section>
-            <section className="bg-[#f9f7f4] mt-14">
+            <section className="bg-[#f9f7f4] dark:bg-white mt-14">
 
                 
 

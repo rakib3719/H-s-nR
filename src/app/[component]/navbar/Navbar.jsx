@@ -3,6 +3,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import MobileMenu from "./MobileMenu";
 import { useEffect, useState } from "react";
+import logo from '../../../asset/images/logo2.png'
+import Image from "next/image";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -35,20 +37,21 @@ const Navbar = () => {
 
   return (
     <div className={`absolute top-0 left-0 w-full z-50 transition-all duration-300 ${isScrolled
-        ? "sticky shadow-lg border-t border-gray-500 text-white bg-black"
+        ? "sticky shadow-lg border-t border-gray-500 text-white bg-gray-500"
         : "bg-transparent border-b bg-black border-gray-500"
       }`}>
       <nav>
         <div className="max-w-[1500px] mx-auto px-6 sm:px-8 lg:px-12 flex justify-between items-center h-20">
 
           {/* Logo Section */}
-          <div className="flex font-bold items-center space-x-4">
-            <span
+          <div className="flex font-bold items-center -ml-14">
+            {/* <span
               className={`font-jost text-2xl transition-colors duration-300 ${pathname === "/" ? "" : "text-white"
                 }`}
             >
               Hotel-Seven-View
-            </span>
+            </span> */}
+            <Image src={logo} alt="Seven view" width={200} height={90}/>
           </div>
 
           {/* Desktop Menu */}
