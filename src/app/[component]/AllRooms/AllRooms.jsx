@@ -68,10 +68,7 @@ const AllRooms = ({getRooms}) => {
       >
         <h1 className="text-4xl font-bold uppercase pt-11 mt-16">All Rooms</h1>
         <div className="mt-2 w-24 h-1 bg-orange-500 mx-auto"></div>
-        <p>
-          Indulge in the ultimate blend of elegance and comfort <br /> in our
-          meticulously designed rooms. <br /> Choose your room today.
-        </p>
+     
         <div className="flex items-center space-x-2 mt-4 text-lg font-medium">
           <Link href="/" className="hover:underline">
             Home
