@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import restaurant from '../../../../src/asset/images/pexels-solliefoto-299348.jpg'
 
 
 const images = [
@@ -14,9 +14,54 @@ const images = [
     category: "Rooms",
   },
   {
+    src: "https://i.ibb.co.com/Qv2fgf5/pexels-fotoaibe-1669799.jpg",
+    alt: "Room 3",
+    category: "Rooms",
+  },
+  {
     src: "https://scontent.fcgp4-2.fna.fbcdn.net/v/t39.30808-6/470178682_122115029402603522_4420168692400168140_n.jpg?stp=dst-jpg_s206x206_tt6&_nc_cat=106&ccb=1-7&_nc_sid=714c7a&_nc_eui2=AeGEipUz9v543DkPc6CM9daXwOEIT6uxaSbA4QhPq7FpJmIcmkmLkrgNiKc330NbEjph5VbUQiNdFnVuw6K_C80U&_nc_ohc=DlZV3Gd6uOgQ7kNvgHpxDFs&_nc_zt=23&_nc_ht=scontent.fcgp4-2.fna&_nc_gid=AnPVcOK-z8rmE9TM2jK_w5s&oh=00_AYDnUxILGxdpoFxos8vFzdgEzFuD48DgpyhknPNtYWyRMw&oe=6762305F",
     alt: "Room 3",
     category: "Rooms",
+  },
+  {
+    src:'https://i.ibb.co.com/stqj1pQ/pexels-solliefoto-299348.jpg',
+    alt: "Restaurant",
+    category: "Restaurant",
+  },
+  {
+    src:'https://i.ibb.co.com/f4HyF8p/pexels-solliefoto-313700.jpg',
+    alt: "Restaurant",
+    category: "Restaurant",
+  },
+  {
+    src:'https://i.ibb.co.com/bWF80Xb/pexels-creative-vix-375468-1.jpg',
+    alt: "Restaurant",
+    category: "Restaurant",
+  },
+  {
+    src:'https://i.ibb.co.com/jZ3Rr2w/pexels-wildlittlethingsphoto-1861785.jpg',
+    alt: "Restaurant",
+    category: "Restaurant",
+  },
+  {
+    src:'https://i.ibb.co.com/crSQ6DT/pexels-pixabay-262047.jpg',
+    alt: "hotel",
+    category: "Hotel",
+  },
+  {
+    src:'https://i.ibb.co.com/w7yG8Hv/pexels-enginakyurt-1579253.jpg',
+    alt: "hotel",
+    category: "Hotel",
+  },
+  {
+    src:'https://i.ibb.co.com/34FdQ6B/pexels-pixabay-261169.jpg',
+    alt: "hotel",
+    category: "Hotel",
+  },
+  {
+    src:'https://i.ibb.co.com/b5zNpzZ/pexels-enginakyurt-2736388.jpg',
+    alt: "hotel",
+    category: "Hotel",
   },
   // {
   //   src:{img1},
