@@ -18,7 +18,7 @@ const Navbar = () => {
   }, []);
 
   const pathname = usePathname();
-
+  if (pathname.startsWith('/mydashboard')) return null;
   if (pathname.includes('/admin') || pathname.includes('/login')) {
     return null;
   }

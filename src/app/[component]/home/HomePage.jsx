@@ -10,11 +10,11 @@ import SpecialOffers from "./SpecialOffers";
 
 const HomePage = () => {
     return (
-        <div className="max-w-[1400px] mx-auto">
+        <div className="">
             <Banner />
             <OurRooms/> 
             <RandomSection/>
-            <SpecialOffers/>
+            {/* <SpecialOffers/> */}
             <div>
                 <h1 className="text-center  font-bold text-3xl ">Facilites</h1>
             <Facilities/>

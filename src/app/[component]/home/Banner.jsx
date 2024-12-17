@@ -214,9 +214,9 @@ const Banner = () => {
   };
 
   return (
-    <div className="relative pt-28 bg-[#fff5ed] overflow-hidden">
+    <div className="relative bg-[#fff5ed] overflow-hidden">
       {/* Main Container */}
-      <div className="lg:flex max-w-[1400px] mx-auto px-4 lg:px-12 items-center py-16 gap-12 lg:text-left text-center">
+      <div className=" pt-28  lg:flex max-w-[1400px] mx-auto px-4 lg:px-12 items-center py-16 gap-12 lg:text-left text-center">
         {/* Left Section */}
         <motion.section
           className="flex-1"
