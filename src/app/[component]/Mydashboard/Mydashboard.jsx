@@ -22,27 +22,83 @@
 
 // // this is for laptop devices
 
-'use client'
+// 'use client'
+// import React, { useState } from 'react';
+// import Sidebar from './Sidebar';
+// import Topbar from './Topbar';
+
+// const Mydashboard = () => {
+//   const [isCollapsed, setIsCollapsed] = useState(false);
+
+//   const toggleSidebar = () => {
+//     setIsCollapsed(!isCollapsed);
+//   };
+
+//   return (
+//     <div className="flex h-screen">
+//       {/* Sidebar */}
+//       <Sidebar isCollapsed={isCollapsed} />
+
+//       {/* Main Content */}
+//       <div className="flex-1 flex flex-col">
+//         {/* Topbar */}
+//         <Topbar toggleSidebar={toggleSidebar} />
+
+//         {/* Page Content */}
+//         <main className="flex-grow bg-gray-100 p-6">
+//           <h1 className="text-2xl font-semibold">Welcome to My Dashboard</h1>
+//           <p className="mt-4">
+//             Click the toggle button on the top left to shrink or expand the sidebar.
+//           </p>
+//         </main>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default Mydashboard;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+'use client';
 import React, { useState } from 'react';
 import Sidebar from './Sidebar';
 import Topbar from './Topbar';
 
 const Mydashboard = () => {
   const [isCollapsed, setIsCollapsed] = useState(false);
+  const [showMobileSidebar, setShowMobileSidebar] = useState(false);
 
   const toggleSidebar = () => {
     setIsCollapsed(!isCollapsed);
   };
 
+  const toggleMobileSidebar = () => {
+    setShowMobileSidebar(!showMobileSidebar);
+  };
+
   return (
-    <div className="flex h-screen">
+    <div className="flex h-screen relative">
       {/* Sidebar */}
-      <Sidebar isCollapsed={isCollapsed} />
+      <Sidebar isCollapsed={isCollapsed} showMobileSidebar={showMobileSidebar} />
 
       {/* Main Content */}
       <div className="flex-1 flex flex-col">
         {/* Topbar */}
-        <Topbar toggleSidebar={toggleSidebar} />
+        <Topbar toggleSidebar={toggleSidebar} toggleMobileSidebar={toggleMobileSidebar} />
 
         {/* Page Content */}
         <main className="flex-grow bg-gray-100 p-6">
@@ -52,6 +108,14 @@ const Mydashboard = () => {
           </p>
         </main>
       </div>
+
+      {/* Mobile Sidebar Overlay */}
+      {showMobileSidebar && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-50 z-40 md:hidden"
+          onClick={toggleMobileSidebar}
+        ></div>
+      )}
     </div>
   );
 };
