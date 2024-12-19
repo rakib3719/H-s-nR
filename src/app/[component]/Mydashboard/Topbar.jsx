@@ -48,6 +48,7 @@
 
 // // modified toggle for mobile
 
+import Link from 'next/link';
 import React from 'react';
 import { FaAlignLeft } from 'react-icons/fa';
 
@@ -81,7 +82,7 @@ const Topbar = ({ toggleSidebar, toggleMobileSidebar }) => {
           <FaAlignLeft className="text-2xl cursor-pointer" />
         </button>
 
-        <div className="bg-green-500 text-white px-4 py-2 rounded">Website</div>
+        <div className="bg-green-500 text-white px-4 py-2 rounded"><Link href={'/'}>Website</Link></div>
         <div className="bg-blue-500 text-white px-4 py-2 rounded hidden md:block">Customer Invoice</div>
         <div className="bg-gray-800 text-white px-4 py-2 rounded hidden md:block">Booking Report</div>
       </div>

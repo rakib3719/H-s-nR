@@ -231,7 +231,7 @@ const Banner = () => {
             Immerse yourself in the epitome of luxury at <b>Hotel Seven View</b>, your premier destination in Uttara Dhaka.
             Our hotel redefines elegance and comfort, offering an exquisite escape for discerning travelers.
           </p>
-          <ul className="mt-6 space-y-2">
+          <ul className="mt-6 space-y-2 hidden">
             <li className="flex items-center text-gray-600">
               <FaCheckCircle className="text-[#ab8965] mr-3" /> World-class amenities and services
             </li>
@@ -258,7 +258,7 @@ const Banner = () => {
       {/* Search Bar Section */}
       <div className="relative bg-white shadow-lg rounded-lg max-w-6xl mx-auto -mt-10 p-4 lg:p-6 flex flex-col lg:flex-row items-center justify-between gap-4 lg:gap-6">
         {/* Location Input */}
-        <div className="flex items-center border border-gray-300 rounded-lg p-3 flex-1 w-full lg:w-auto">
+        <div className="items-center border border-gray-300 rounded-lg p-3 flex-1 w-full lg:w-auto hidden">
           <FaMapMarkerAlt className="text-gray-500 mr-2" />
           <div>
             <p className="text-gray-600 text-sm">Where do you want to stay?</p>
