@@ -66,7 +66,7 @@ const AboutPage = () => {
                         we ensure an unforgettable stay for all our guests.
                     </p>
                     <p className="text-gray-600 text-lg">
-                        Whether you're here for business or leisure, we cater to your every need.
+                        Whether you&apos;re here for business or leisure, we cater to your every need.
                         Relax, unwind, and create lasting memories with us.
                     </p>
 
