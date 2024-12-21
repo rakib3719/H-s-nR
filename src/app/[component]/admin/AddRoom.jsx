@@ -2,6 +2,9 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 const AddRoom = () => {
+
+  
+
   return (
     <div className="max-w-7xl mx-auto px-6 py-12">
       {/* Title */}

@@ -19,7 +19,7 @@ const fetchRooms = async () => {
   return response.json();
 };
 
-const Page = () => {
+const AllRoomsInAdmin = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentRoom, setCurrentRoom] = useState(null);
   const [loader, setLoader] = useState(false);
@@ -325,4 +325,4 @@ const Page = () => {
   );
 };
 
-export default Page;
+export default AllRoomsInAdmin;
