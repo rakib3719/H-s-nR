@@ -88,7 +88,7 @@ import BookingCard from './BookingCard';
 const DetailsPage = ({ params }) => {
 
     const [data, setData] = useState({})
-    const [loader, setLoader] = useState(false)
+    const [loader, setLoader] = useState(true)
     const bookingData = {
         name: data?.name,
         price: data?.price,
@@ -126,12 +126,12 @@ const DetailsPage = ({ params }) => {
             <aside className="">
                 <div className="">
                     {/* <ImageSlider data={data} loader={loader} /> */}
-
-                    <RoomGallery/>
+                     
+                    <RoomGallery data={data} loader={loader} />
 
                     <div className='flex gap-3'>
-                        <RoomDescription />
-                        <BookingCard/>
+                        <RoomDescription data={data} loader={loader} />
+                        <BookingCard data={data} loader={loader} />
                     </div>
                 </div>
                 

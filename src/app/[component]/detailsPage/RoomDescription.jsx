@@ -1,7 +1,7 @@
 import React from 'react';
 import { FaUsers, FaBed, FaBath, FaDoorClosed } from 'react-icons/fa'; // Importing relevant icons
 
-const RoomDescription = () => {
+const RoomDescription = ({data,loader}) => {
   return (
     <div className="p-6 bg-white rounded-lg shadow-md w-[70%]">
       <h2 className="text-2xl font-bold mb-4">About this home</h2>
@@ -18,7 +18,7 @@ const RoomDescription = () => {
         <div className="text-center">
           <div className="flex items-center justify-center gap-2 text-xl font-semibold">
             <FaUsers className="text-pink-600" />
-            <span>2</span>
+            <span>{Number(data?.adults)+Number(data?.childs)}</span>
           </div>
           <div className="text-gray-500">Guests</div>
         </div>
@@ -26,7 +26,7 @@ const RoomDescription = () => {
         <div className="text-center">
           <div className="flex items-center justify-center gap-2 text-xl font-semibold">
             <FaDoorClosed className="text-pink-600" />
-            <span>1</span>
+            <span>{data?.bedrooms}</span>
           </div>
           <div className="text-gray-500">Bedrooms</div>
         </div>
@@ -34,7 +34,7 @@ const RoomDescription = () => {
         <div className="text-center">
           <div className="flex items-center justify-center gap-2 text-xl font-semibold">
             <FaBed className="text-pink-600" />
-            <span>1</span>
+            <span>{data?.beds}</span>
           </div>
           <div className="text-gray-500">Bed</div>
         </div>
@@ -42,7 +42,7 @@ const RoomDescription = () => {
         <div className="text-center">
           <div className="flex items-center justify-center gap-2 text-xl font-semibold">
             <FaBath className="text-pink-600" />
-            <span>1</span>
+            <span>{data?.washrooms||'3'}</span>
           </div>
           <div className="text-gray-500">Bathrooms</div>
         </div>

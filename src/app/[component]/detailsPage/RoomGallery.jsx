@@ -44,9 +44,16 @@
 
 
 
-import React from "react";
+import React, { useState } from "react";
 
-const RoomGallery = () => {
+const RoomGallery = ({data,loader}) => {
+
+  let [bg,setbg]=useState(data.images||[])
+
+  if (loader) {
+    return 'dfds'
+  }
+  
   const images = [
     { src: "https://travelaprod.sgp1.digitaloceanspaces.com/images/0dI9HuIKVhzMy2vIxSYjbpOhXVY184GdBuSj6M4J.jpg", alt: "Room 1" },
     { src: "https://travelaprod.sgp1.digitaloceanspaces.com/images/0dI9HuIKVhzMy2vIxSYjbpOhXVY184GdBuSj6M4J.jpg", alt: "Room 2" },
@@ -57,11 +64,12 @@ const RoomGallery = () => {
 
   return (
     <div className="max-w-[1400px] mx-auto py-10 px-4">
+      <h1 className='font-bold text-3xl mb-5'> {data?.name} </h1>
       <div className="grid grid-cols-3 gap-4">
         {/* Left side: Main image */}
         <div className="col-span-2 row-span-2 rounded-lg overflow-hidden shadow-md">
           <img
-            src={images[0].src}
+            src={data.frontImage}
             alt={images[0].alt}
             className="w-full h-full object-cover"
           />
@@ -69,14 +77,14 @@ const RoomGallery = () => {
 
         {/* Right side: 4 smaller images */}
         <div className="grid grid-cols-2 gap-4 col-span-1 row-span-2">
-          {images.slice(1, 5).map((image, index) => (
+          { bg.map((image, index) => (
             <div
               key={index}
               className="rounded-lg overflow-hidden shadow-md"
             >
               <img
-                src={image.src}
-                alt={image.alt}
+                src={image}
+                alt={image}
                 className="w-full h-full object-cover"
               />
             </div>
