@@ -3,7 +3,7 @@ import { FaUsers, FaBed, FaBath, FaDoorClosed } from 'react-icons/fa'; // Import
 
 const RoomDescription = ({data,loader}) => {
   return (
-    <div className="p-6 bg-white rounded-lg shadow-md w-[70%]">
+    <div className="p-6 bg-white rounded-lg shadow-md md:w-[70%]">
       <h2 className="text-2xl font-bold mb-4">About this home</h2>
       <ul className="list-disc list-inside mb-4">
         <li>AC Bedroom</li>

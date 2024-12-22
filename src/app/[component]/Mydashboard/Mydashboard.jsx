@@ -97,6 +97,8 @@ import CreateRoom from './Room/CreateRoom';
 import AllRoomsInAdmin from '@/app/admin/allroom/page';
 import BookingTable from '@/app/admin/allbooking/page';
 import AddBookingForm from '../admin/AddBookingForm';
+import StatsCards from './StatsCards';
+import Messagepage from '@/app/admin/message/page';
 
 const Mydashboard = () => {
   const [isCollapsed, setIsCollapsed] = useState(false);
@@ -119,7 +121,10 @@ const Mydashboard = () => {
   const renderContent = () => {
     switch (activePage) {
       case 'Dashboard':
-        return <h1 className="text-2xl font-semibold">Welcome to My Dashboard</h1>;
+        return <div>
+          <h1 className="text-2xl font-semibold">Welcome to My Dashboard</h1>
+          <StatsCards/>
+        </div> ;
       case 'Add Room':
         return <div><CreateRoom/></div>;
       case 'All Rooms':
@@ -128,6 +133,8 @@ const Mydashboard = () => {
         return <div> <BookingTable/></div>;
       case 'Add Booking':
         return <div><AddBookingForm/></div>;
+      case 'Message':
+        return <div><Messagepage/></div>;
       default:
         return <h1 className="text-2xl font-semibold">Page Not Found</h1>;
     }

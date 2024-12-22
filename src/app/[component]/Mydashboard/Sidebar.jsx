@@ -18,7 +18,7 @@
 //     <div
 //       className={`bg-gray-900 text-white h-screen flex flex-col fixed md:relative z-50 transition-all duration-300 
 //         ${isCollapsed ? 'w-16' : 'w-64'} 
-      
+
 //         ${showMobileSidebar ? 'left-0' : '-left-64'} md:left-0`}
 //     >
 //       {/* Logo */}
@@ -96,16 +96,16 @@
 
 
 
-
-
 'use client';
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { 
-  FaHome, FaUser, FaUsers, FaDollarSign, FaShoppingCart, 
-  FaChartBar, FaThLarge, FaBed, FaUtensils, FaChevronLeft, FaChevronDown 
+import {
+  FaHome, FaUser, FaUsers, FaDollarSign, FaShoppingCart,
+  FaChartBar, FaThLarge, FaBed, FaUtensils, FaChevronLeft, FaChevronDown,
+  FaBookmark
 } from 'react-icons/fa';
+import { IoBed } from "react-icons/io5";
 
 const Sidebar = ({ isCollapsed, showMobileSidebar, handlePageChange }) => {
   const [expandedMenu, setExpandedMenu] = useState(null);
@@ -123,7 +123,7 @@ const Sidebar = ({ isCollapsed, showMobileSidebar, handlePageChange }) => {
       {/* Logo */}
       <div className={`flex items-center justify-center mt-10 ${isCollapsed && 'hidden'}`}>
         <div className="text-2xl font-bold text-green-500">
-          Oxain<span className="text-white">Hotel</span>
+          Seven<span className="text-white">Hotel</span>
         </div>
       </div>
 
@@ -141,10 +141,16 @@ const Sidebar = ({ isCollapsed, showMobileSidebar, handlePageChange }) => {
 
       {/* Navigation Links */}
       <nav className="mt-10 flex-1">
-        <SidebarLink href="/" icon={<FaHome />} title="Dashboard" isCollapsed={isCollapsed} />
+        <SidebarLink
+          href="/"
+          icon={<FaHome />}
+          title="Dashboard"
+          isCollapsed={isCollapsed}
+          onClick={() => handlePageChange('Dashboard')}
+        />
 
         <SidebarLink
-          icon={<FaUser />}
+          icon={<IoBed />}
           title="Room"
           isCollapsed={isCollapsed}
           dropdown
@@ -157,7 +163,7 @@ const Sidebar = ({ isCollapsed, showMobileSidebar, handlePageChange }) => {
         />
 
         <SidebarLink
-          icon={<FaUsers />}
+          icon={<FaBookmark />}
           title="Booking"
           isCollapsed={isCollapsed}
           dropdown
@@ -169,37 +175,35 @@ const Sidebar = ({ isCollapsed, showMobileSidebar, handlePageChange }) => {
           ]}
         />
 
-        <SidebarLink href="/message" icon={<FaUsers />} title="Message" isCollapsed={isCollapsed} />
-        {/* <SidebarLink href="/payment" icon={<FaDollarSign />} title="Payment Setting" isCollapsed={isCollapsed} />
-        <SidebarLink href="/purchase" icon={<FaShoppingCart />} title="Purchase Manage" isCollapsed={isCollapsed} />
-        <SidebarLink href="/reports" icon={<FaChartBar />} title="Reports" isCollapsed={isCollapsed} />
-        <SidebarLink href="/room-facilities" icon={<FaThLarge />} title="Room Facilities" isCollapsed={isCollapsed} />
-        <SidebarLink href="/reservation" icon={<FaBed />} title="Room Reservation" isCollapsed={isCollapsed} />
         <SidebarLink
-          href="/restaurant"
-          icon={<FaUtensils />}
-          title="Restaurant"
-          addon={
-            !isCollapsed && (
-              <span className="bg-red-500 text-white text-xs px-2 py-1 rounded ml-2">Addon</span>
-            )
-          }
+         onClick={() => handlePageChange('Message')}
+          icon={<FaUsers />}
+          title="Message"
           isCollapsed={isCollapsed}
-        /> */}
+        />
       </nav>
     </div>
   );
 };
 
-const SidebarLink = ({ href, icon, title, addon, dropdown, isCollapsed, isExpanded, onExpand, subLinks = [] }) => (
+const SidebarLink = ({
+  href,
+  icon,
+  title,
+  dropdown,
+  isCollapsed,
+  isExpanded,
+  onExpand,
+  subLinks = [],
+  onClick
+}) => (
   <>
     <div
       className="flex items-center py-2 px-6 hover:bg-gray-700 transition duration-300 cursor-pointer"
-      onClick={dropdown ? onExpand : undefined}
+      onClick={dropdown ? onExpand : onClick}
     >
       {icon && <span className="mr-3">{icon}</span>}
       {!isCollapsed && <span className="flex-1">{title}</span>}
-      {addon && addon}
       {dropdown && !isCollapsed && (
         <span className="ml-auto">
           {isExpanded ? <FaChevronDown className="text-gray-400" /> : <FaChevronLeft className="text-gray-400" />}
@@ -234,12 +238,11 @@ export default Sidebar;
 
 
 
-
 // import React from 'react';
 // import Link from 'next/link';
-// import { 
-//   FaHome, FaUser, FaUsers, FaDollarSign, FaShoppingCart, 
-//   FaChartBar, FaThLarge, FaBed, FaUtensils, FaChevronLeft 
+// import {
+//   FaHome, FaUser, FaUsers, FaDollarSign, FaShoppingCart,
+//   FaChartBar, FaThLarge, FaBed, FaUtensils, FaChevronLeft
 // } from 'react-icons/fa';
 
 // const Sidebar = ({ isCollapsed, showMobileSidebar, handlePageChange }) => {

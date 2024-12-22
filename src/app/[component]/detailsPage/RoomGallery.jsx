@@ -65,9 +65,9 @@ const RoomGallery = ({data,loader}) => {
   return (
     <div className="max-w-[1400px] mx-auto py-10 px-4">
       <h1 className='font-bold text-3xl mb-5'> {data?.name} </h1>
-      <div className="grid grid-cols-3 gap-4">
+      <div className="grid grid-cols-1  md:grid-cols-3 gap-4">
         {/* Left side: Main image */}
-        <div className="col-span-2 row-span-2 rounded-lg overflow-hidden shadow-md">
+        <div className="md:col-span-2 md:row-span-2 rounded-lg overflow-hidden shadow-md">
           <img
             src={data.frontImage}
             alt={images[0].alt}
@@ -76,7 +76,7 @@ const RoomGallery = ({data,loader}) => {
         </div>
 
         {/* Right side: 4 smaller images */}
-        <div className="grid grid-cols-2 gap-4 col-span-1 row-span-2">
+        <div className="grid md:grid-cols-2 gap-4 md:col-span-1 md:row-span-2">
           { bg.map((image, index) => (
             <div
               key={index}
