@@ -94,6 +94,8 @@ const DetailsPage = ({ params }) => {
         price: data?.price,
         roomNumber: data?.roomNumber
     }
+    console.log(data);
+    
 
     const loadData = async (id) => {
         setLoader(true)
