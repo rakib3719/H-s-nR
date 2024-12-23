@@ -4,6 +4,7 @@ import Navbar from "./[component]/navbar/Navbar";
 import Footer from "./[component]/shared/Footer";
 
 import 'react-toastify/dist/ReactToastify.css';
+import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -27,6 +28,8 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Navbar/>
+        
+        {/* <div className="h-40px mt-20"></div> */}
         {children}
         <Footer/>
       </body>
