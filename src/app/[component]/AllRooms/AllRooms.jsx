@@ -163,6 +163,8 @@ import React, { useEffect, useState } from 'react';
 import { FaAngleRight } from 'react-icons/fa6';
 import axios from 'axios';
 import Loader from '../loader/Loader';
+import { TbCurrencyTaka } from "react-icons/tb";
+
 
 const AllRooms = ({ getRooms }) => {
   const [rooms, setRooms] = useState([]);
@@ -250,8 +252,8 @@ const AllRooms = ({ getRooms }) => {
                 <h1 className="text-2xl font-semibold text-gray-800">
                   {room.name}
                 </h1>
-                <p className="text-gray-600 mt-2 text-lg">
-                  ${room.price} / Night
+                <p className="text-gray-600 mt-2 text-lg flex items-center justify-center">
+                 <TbCurrencyTaka/> {room.price} / Night
                 </p>
                 <Link href={`/details/${room._id}`}>
                   <button
