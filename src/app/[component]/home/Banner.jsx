@@ -615,9 +615,9 @@ const Banner = () => {
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(null);
   const [guests, setGuests] = useState({
-    adults: 2,
+    adults: 0,
     children: 0,
-    rooms: 1,
+    rooms: 0,
   });
   const [loading, setLoading] = useState(false); // Loading state
   const router = useRouter(); // Use next/router for navigation
@@ -638,10 +638,10 @@ const Banner = () => {
   const handleSearch = async () => {
     // Ensure adults and children are numbers
     const { adults, children } = guests;
-    if (!startDate || !endDate || adults <= 0 || children <= 0) {
-      alert('Please fill in all required fields.');
-      return;
-    }
+    // if (!startDate || !endDate || adults <= 0 || children <= 0) {
+    //   alert('Please fill in all required fields.');
+    //   return;
+    // }
   
     // Set loading state to true while fetching data
     setLoading(true);

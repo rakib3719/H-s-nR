@@ -1,24 +1,33 @@
 import React from 'react';
 import { FaUsers, FaBed, FaBath, FaDoorClosed } from 'react-icons/fa'; // Importing relevant icons
 
-const RoomDescription = ({data,loader}) => {
+const RoomDescription = ({ data, loader }) => {
   return (
     <div className="p-6 bg-white rounded-lg shadow-md md:w-[70%]">
       <h2 className="text-2xl font-bold mb-4">About this home</h2>
-      <ul className="list-disc list-inside mb-4">
+
+      {/* <ul className="list-disc list-inside mb-4">
         <li>AC Bedroom</li>
         <li>Attached Washroom</li>
         <li>Smart 32 inch TV</li>
         <li>Free Refreshment for Tea & Coffee</li>
         <li>Almirah ...</li>
-      </ul>
+      </ul> */}
+
+      <div>
+        <div
+          className="mt-4"
+          dangerouslySetInnerHTML={{ __html: data.description }}
+        />
+      </div>
+
       <a href="#" className="text-blue-500 underline">See more</a>
       <div className="mt-6 flex justify-between items-center">
         {/* Guest Section */}
         <div className="text-center">
           <div className="flex items-center justify-center gap-2 text-xl font-semibold">
             <FaUsers className="text-pink-600" />
-            <span>{Number(data?.adults)+Number(data?.childs)}</span>
+            <span>{Number(data?.adults) + Number(data?.childs)}</span>
           </div>
           <div className="text-gray-500">Guests</div>
         </div>
@@ -42,7 +51,7 @@ const RoomDescription = ({data,loader}) => {
         <div className="text-center">
           <div className="flex items-center justify-center gap-2 text-xl font-semibold">
             <FaBath className="text-pink-600" />
-            <span>{data?.washrooms||'3'}</span>
+            <span>{data?.washrooms || '3'}</span>
           </div>
           <div className="text-gray-500">Bathrooms</div>
         </div>

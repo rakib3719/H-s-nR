@@ -4,6 +4,7 @@ import Navbar from "./[component]/navbar/Navbar";
 import Footer from "./[component]/shared/Footer";
 
 import 'react-toastify/dist/ReactToastify.css';
+import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
