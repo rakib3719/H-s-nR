@@ -20,7 +20,7 @@ const Messagepage = () => {
 
   if (isLoading) {
     return (
-      <div className="py-28 text-center text-white">
+      <div className="py-28 text-center text-black">
         <h1 className="text-2xl animate-pulse">Loading messages...</h1>
       </div>
     );

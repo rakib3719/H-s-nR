@@ -29,10 +29,10 @@ const Footer = () => {
             button.
           </p>
           <p className="mt-4 text-sm">
-            <strong>Email:</strong> support@quickbites.com
+            <strong>Email:</strong> hotelsevenview.official@gmail.com
           </p>
           <p className="text-sm">
-            <strong>Phone:</strong> +880-1234-567890
+            <strong>Phone:</strong> +8801825791133
           </p>
         </div>
 

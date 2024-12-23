@@ -74,3 +74,7 @@ body {
 body {
   scroll-behavior: smooth;
 }
+
+.react-datepicker__month-container{
+  width: 100%;
+}
