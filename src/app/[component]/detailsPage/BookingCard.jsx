@@ -512,7 +512,7 @@ const BookingCard = ({ data }) => {
 
   const handleBooking = async () => {
     const bookingDetails = {
-      pricePerRoom:data?.price||10000,
+      pricePerRoom: data?.price || 10000,
       checkInDate,
       checkOutDate,
       guests,
@@ -668,6 +668,7 @@ const BookingCard = ({ data }) => {
             Email
           </label>
           <input
+            required
             type="email"
             name="email"
             id="email"
@@ -683,6 +684,7 @@ const BookingCard = ({ data }) => {
             Phone Number
           </label>
           <input
+            required
             type="tel"
             name="phoneNumber"
             id="phoneNumber"
@@ -712,9 +714,8 @@ const BookingCard = ({ data }) => {
       <button
         onClick={handleBooking}
         disabled={loading} // Disable the button if loading is true
-        className={`w-full py-2 mt-4 text-white font-medium rounded-lg ${
-          loading ? "bg-gray-400" : "bg-pink-500 hover:bg-pink-600"
-        }`}
+        className={`w-full py-2 mt-4 text-white font-medium rounded-lg ${loading ? "bg-gray-400" : "bg-pink-500 hover:bg-pink-600"
+          }`}
       >
         {loading ? "Processing..." : "BOOK NOW"}
       </button>
