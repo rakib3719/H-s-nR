@@ -84,6 +84,8 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import { Pagination, Autoplay } from 'swiper/modules'; // Import Swiper modules
+import { TbCurrencyTaka } from "react-icons/tb";
+
 
 const OurRooms = () => {
   const [rooms, setRooms] = useState([]);
@@ -143,7 +145,7 @@ const OurRooms = () => {
               {/* Text Content */}
               <div className="mt-4 text-center">
                 <h1 className="text-2xl font-semibold text-gray-800">{room.name}</h1>
-                <p className="text-gray-600 mt-2 text-lg">${room.price} / Night</p>
+                <p className="text-gray-600 mt-2 text-lg flex items-center justify-center"><TbCurrencyTaka />{room.price} / Night</p>
               </div>
             </div>
           </SwiperSlide>
