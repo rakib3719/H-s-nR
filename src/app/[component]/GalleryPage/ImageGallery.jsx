@@ -1,7 +1,4 @@
 import { useState } from "react";
-import restaurant from '../../../../src/asset/images/pexels-solliefoto-299348.jpg'
-
-
 const images = [
   {
     src: "https://i.ibb.co/nkK1hnf/1000128782.jpg",
@@ -23,26 +20,8 @@ const images = [
     alt: "Room 3",
     category: "Rooms",
   },
-  {
-    src:'https://i.ibb.co.com/stqj1pQ/pexels-solliefoto-299348.jpg',
-    alt: "Restaurant",
-    category: "Restaurant",
-  },
-  {
-    src:'https://i.ibb.co.com/f4HyF8p/pexels-solliefoto-313700.jpg',
-    alt: "Restaurant",
-    category: "Restaurant",
-  },
-  {
-    src:'https://i.ibb.co.com/bWF80Xb/pexels-creative-vix-375468-1.jpg',
-    alt: "Restaurant",
-    category: "Restaurant",
-  },
-  {
-    src:'https://i.ibb.co.com/jZ3Rr2w/pexels-wildlittlethingsphoto-1861785.jpg',
-    alt: "Restaurant",
-    category: "Restaurant",
-  },
+  
+ 
   {
     src:'https://i.ibb.co.com/crSQ6DT/pexels-pixabay-262047.jpg',
     alt: "hotel",
@@ -63,39 +42,9 @@ const images = [
     alt: "hotel",
     category: "Hotel",
   },
-  // {
-  //   src:{img1},
-  //   alt: "Pool",
-  //   category: "Hotel",
-  // },
-  // {
-  //   src: "https://i.ibb.co/nkS4jFx/gct6.jpg",
-  //   alt: "Pool",
-  //   category: "Hotel",
-  // },
-  // {
-  //   src: "https://i.ibb.co/svH2c14/gct5.jpg",
-  //   alt: "Restaurant",
-  //   category: "Restaurant",
-  // },
-  // {
-  //   src: "https://i.ibb.co/svH2c14/gct5.jpg",
-  //   alt: "Restaurant",
-  //   category: "Restaurant",
-  // },
-  // {
-  //   src: "https://i.ibb.co/svH2c14/gct5.jpg",
-  //   alt: "Restaurant",
-  //   category: "Restaurant",
-  // },
-  // {
-  //   src: "https://i.ibb.co/svH2c14/gct5.jpg",
-  //   alt: "Hotel",
-  //   category: "Hotel",
-  // },
 ];
 
-const categories = ["All", "Rooms", "Restaurant", "Hotel"];
+const categories = ["All", "Rooms", "Hotel"];
 
 export default function GalleryComponent() {
   const [activeCategory, setActiveCategory] = useState("All");
