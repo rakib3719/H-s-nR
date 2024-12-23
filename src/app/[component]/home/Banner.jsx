@@ -120,7 +120,7 @@ const Banner = () => {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1, ease: 'easeOut' }}
         >
-          <Image src={bannerImg} alt="Hotel Seven View Banner" className="rounded-lg shadow-md" />
+          <Image src={bannerImg} alt="Hotel Seven View Banner" className="" />
         </motion.section>
       </div>
 
