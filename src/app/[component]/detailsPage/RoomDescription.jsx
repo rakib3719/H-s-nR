@@ -21,7 +21,7 @@ const RoomDescription = ({ data, loader }) => {
         />
       </div>
 
-      <a href="#" className="text-blue-500 underline">See more</a>
+      {/* <a href="#" className="text-blue-500 underline">See more</a> */}
       <div className="mt-6 flex justify-between items-center">
         {/* Guest Section */}
         <div className="text-center">

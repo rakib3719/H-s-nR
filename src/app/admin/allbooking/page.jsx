@@ -166,7 +166,7 @@ const BookingTable = () => {
             <p><strong>Room Number:</strong> {selectedBooking.roomNumber}</p>
             <p><strong>Status:</strong> {selectedBooking.status}</p>
             <p><strong>Email:</strong> {selectedBooking.email}</p>
-            <p><strong>Phone:</strong> {selectedBooking.phone}</p>
+            <p><strong>Phone:</strong> {selectedBooking.phone || selectedBooking.phoneNumber}</p>
             <p><strong>Check-In Date:</strong> {new Date(selectedBooking.checkInDate).toLocaleString()}</p>
             <p><strong>Check-Out Date:</strong> {new Date(selectedBooking.checkOutDate).toLocaleString()}</p>
             <p><strong>Price Per Room:</strong> ${selectedBooking.pricePerRoom}</p>
