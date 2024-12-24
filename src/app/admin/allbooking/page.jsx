@@ -171,12 +171,12 @@ const BookingTable = () => {
             <p><strong>Check-Out Date:</strong> {new Date(selectedBooking.checkOutDate).toLocaleString()}</p>
             <p><strong>Price Per Room:</strong> ${selectedBooking.pricePerRoom}</p>
             <p><strong>Adults:</strong> {selectedBooking.adults}</p>
-            <p><strong>Children:</strong> {selectedBooking.children}</p>
-            <p><strong>Rooms:</strong> {selectedBooking.rooms}</p>
+            <p><strong>Children:</strong> {selectedBooking?.children}</p>
+            <p><strong>Rooms:</strong> {selectedBooking?.rooms}</p>
             <p><strong>Extra Beds:</strong> {selectedBooking.extraBeds}</p>
             <p><strong>Services:</strong></p>
             <ul>
-              {Object.entries(selectedBooking.services).map(([key, value]) => (
+              {selectedBooking.services && Object.entries(selectedBooking.services).map(([key, value]) => (
                 <li key={key}>
                   {key.charAt(0).toUpperCase() + key.slice(1)}: {value ? 'Yes' : 'No'}
                 </li>

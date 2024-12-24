@@ -27,7 +27,7 @@ const RoomDescription = ({ data, loader }) => {
         <div className="text-center">
           <div className="flex items-center justify-center gap-2 text-xl font-semibold">
             <FaUsers className="text-pink-600" />
-            <span>{Number(data?.adults) + Number(data?.childs)}</span>
+            <span>{Number(data?.adults) + Number(data?.childs) || ''}</span>
           </div>
           <div className="text-gray-500">Guests</div>
         </div>
@@ -51,7 +51,7 @@ const RoomDescription = ({ data, loader }) => {
         <div className="text-center">
           <div className="flex items-center justify-center gap-2 text-xl font-semibold">
             <FaBath className="text-pink-600" />
-            <span>{data?.washrooms || '3'}</span>
+            <span>{data?.washrooms || ''}</span>
           </div>
           <div className="text-gray-500">Bathrooms</div>
         </div>

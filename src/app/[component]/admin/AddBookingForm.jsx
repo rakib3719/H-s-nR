@@ -24,11 +24,13 @@ const [loading, setLoading] = useState(false)
     children: 0,
     rooms: 1,
     extraBeds: 0,
+
     services: {
       petFriendly: false,
       spa: false,
       sauna: false,
     },
+    
   });
 
   const handleServiceChange = (serviceName) => {
