@@ -253,7 +253,7 @@ const AllRooms = ({ getRooms }) => {
                   {room.name}
                 </h1>
                 <p className="text-gray-600 mt-2 text-lg flex items-center justify-center">
-                 <TbCurrencyTaka/> {room.price} / Night
+                 <TbCurrencyTaka/> {room.price} / {room?.price % 2 !== 0 ? 'day' : 'night'}
                 </p>
                 <Link href={`/details/${room._id}`}>
                   <button

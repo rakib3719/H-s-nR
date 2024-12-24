@@ -562,7 +562,7 @@ const BookingCard = ({ data }) => {
         <h2 className="text-gray-500 text-sm font-medium">Rent Sale</h2>
         <p className="text-pink-500 text-2xl font-bold mt-2">
           BDT {data.price}
-          <span className="text-base font-normal text-gray-600">/day</span>
+          <span className="text-base font-normal text-gray-600">/{data?.price % 2 !== 0 ? 'day' : 'night'}</span>
         </p>
       </div>
 

@@ -126,7 +126,7 @@ const Mydashboard = () => {
           <StatsCards/>
         </div> ;
       case 'Add Room':
-        return <div><CreateRoom/></div>;
+        return <div className='overflow-y-scroll max-h-screen'><CreateRoom/></div>;
       case 'All Rooms':
         return <div><AllRoomsInAdmin/></div>;
       case 'Booking Management':
