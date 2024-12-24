@@ -512,6 +512,13 @@ const BookingCard = ({ data }) => {
 
   const handleBooking = async () => {
     const bookingDetails = {
+      name:data?.name ||'',
+      roomNumber:data?.roomNumber ||'',
+      roomSize:data?.roomSize ||'',
+      squareFeet:data?.squareFeet ||'',
+      washrooms:data?.washrooms ||'',
+      bookedRoomId:data?._id ||'er67657624234t3432432e56767r',
+      maxCapacity:data?.maxCapacity||'',
       pricePerRoom: data?.price || 10000,
       checkInDate,
       checkOutDate,

@@ -242,18 +242,3 @@ export default Banner;
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
