@@ -491,8 +491,8 @@ const BookingCard = ({ data }) => {
   const [checkInDate, setCheckInDate] = useState(defaultCheckInDate);
   const [checkOutDate, setCheckOutDate] = useState(defaultCheckOutDate);
   const [guests, setGuests] = useState({
-    adults: 0,
-    children: 0,
+    adults: Number(data?.adults)  || 0,
+    children: Number(data?.childs ) ||0,
   });
   const [email, setEmail] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
