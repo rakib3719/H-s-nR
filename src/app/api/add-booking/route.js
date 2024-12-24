@@ -9,7 +9,7 @@ export async function POST(request) {
 
     // Parse the request body
     const body = await request.json();
-    const { checkInDate, checkOutDate, guests, pricePerRoom, message, email, phoneNumber, status, name, washrooms, squareFeet, roomSize, roomNumber, } = body;
+    const { checkInDate, checkOutDate, guests, pricePerRoom, message, email, phoneNumber, status, booker,name, washrooms, squareFeet, roomSize, roomNumber, } = body;
     console.log(pricePerRoom);
 
     // Check for missing required fields
@@ -22,6 +22,7 @@ export async function POST(request) {
 
     // Insert the booking into the database
     const result = await bookingsCollection.insertOne({
+      booker,
       name,
       roomNumber,
       roomSize,

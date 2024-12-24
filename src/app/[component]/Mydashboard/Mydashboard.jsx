@@ -122,7 +122,7 @@ const Mydashboard = () => {
     switch (activePage) {
       case 'Dashboard':
         return <div>
-          <h1 className="text-2xl font-semibold">Welcome to My Dashboard</h1>
+          <h1 className="text-2xl font-semibold">My Dashboard</h1>
           <StatsCards/>
         </div> ;
       case 'Add Room':

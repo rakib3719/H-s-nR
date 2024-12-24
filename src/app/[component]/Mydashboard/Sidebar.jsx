@@ -123,7 +123,7 @@ const Sidebar = ({ isCollapsed, showMobileSidebar, handlePageChange }) => {
       {/* Logo */}
       <div className={`flex items-center justify-center mt-10 ${isCollapsed && 'hidden'}`}>
         <div className="text-2xl font-bold text-green-500">
-          Seven<span className="text-white">Hotel</span>
+           Hotel <span className="text-white">Seven View</span>
         </div>
       </div>
 
@@ -135,7 +135,7 @@ const Sidebar = ({ isCollapsed, showMobileSidebar, handlePageChange }) => {
           className="rounded-full w-12 h-12"
         />
         <div className="ml-4">
-          <div className="text-sm font-semibold">Jhon Doye</div>
+          <div className="text-sm font-semibold">Admin</div>
         </div>
       </div>
 

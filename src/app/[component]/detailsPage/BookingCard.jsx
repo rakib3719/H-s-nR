@@ -496,6 +496,7 @@ const BookingCard = ({ data }) => {
   });
   const [email, setEmail] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
+  const [booker, setbooker] = useState("");
   const [message, setMessage] = useState("");
   const [showGuestModal, setShowGuestModal] = useState(false);
   const [loading, setLoading] = useState(false); // Loading state
@@ -523,6 +524,7 @@ const BookingCard = ({ data }) => {
       checkInDate,
       checkOutDate,
       guests,
+      booker,
       email,
       phoneNumber,
       message,
@@ -669,6 +671,27 @@ const BookingCard = ({ data }) => {
       </div>
 
       {/* Email and Phone Number Inputs */}
+
+      <div className="flex flex-col space-y-4 mt-4">
+        <div>
+          <label htmlFor="booker" className="block text-sm font-medium text-gray-700">
+            Name
+          </label>
+          <input
+            required
+            type="text"
+            name="booker"
+            id="booker"
+            placeholder="Enter your name"
+            value={booker}
+            onChange={(e) => setbooker(e.target.value)}
+            className="mt-1 block w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-pink-500 focus:border-pink-500"
+          />
+        </div>
+
+        
+      </div>
+
       <div className="flex flex-col space-y-4 mt-4">
         <div>
           <label htmlFor="email" className="block text-sm font-medium text-gray-700">
