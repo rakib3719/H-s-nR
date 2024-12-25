@@ -134,7 +134,7 @@ const Mydashboard = () => {
       case 'Add Booking':
         return <div><AddBookingForm/></div>;
       case 'Message':
-        return <div><Messagepage/></div>;
+        return <div className='overflow-y-scroll max-h-screen'><Messagepage/></div>;
       default:
         return <h1 className="text-2xl font-semibold">Page Not Found</h1>;
     }

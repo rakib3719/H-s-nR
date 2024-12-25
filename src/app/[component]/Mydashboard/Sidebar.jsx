@@ -116,7 +116,7 @@ const Sidebar = ({ isCollapsed, showMobileSidebar, handlePageChange }) => {
 
   return (
     <div
-      className={`bg-gray-900 text-white max-h-screen  flex flex-col fixed md:relative z-50 transition-all duration-300 
+      className={`bg-gray-900 text-white h-screen  flex flex-col fixed md:relative z-50 transition-all duration-300 
         ${isCollapsed ? 'w-16' : 'w-64'} 
         ${showMobileSidebar ? 'left-0' : '-left-64'} md:left-0`}
     >

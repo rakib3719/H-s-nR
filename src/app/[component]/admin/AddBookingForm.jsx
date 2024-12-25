@@ -9,8 +9,10 @@ import { toast, ToastContainer } from 'react-toastify';
 const AddBookingForm = () => {
   const currentDate = new Date();
   const defaultCheckOutDate = new Date(currentDate);
+  console.log(currentDate);
+
   defaultCheckOutDate.setDate(currentDate.getDate() + 1);
-const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false)
   const [formData, setFormData] = useState({
     checkInDate: currentDate,
     checkOutDate: defaultCheckOutDate,
@@ -19,18 +21,17 @@ const [loading, setLoading] = useState(false)
     status: 'pending',
     email: '',
     phone: '',
-    roomNumber: '', // New field for room number
     adults: 1,
     children: 0,
     rooms: 1,
     extraBeds: 0,
-
+    booker:'',
     services: {
       petFriendly: false,
       spa: false,
       sauna: false,
     },
-    
+
   });
 
   const handleServiceChange = (serviceName) => {
@@ -66,25 +67,25 @@ const [loading, setLoading] = useState(false)
     return totalCost;
   };
 
-  const handleSubmit = async(e) => {
+  const handleSubmit = async (e) => {
     setLoading(true)
     e.preventDefault();
     console.log('Booking Data:', formData);
-try {
-    const response = await axios.post('/api/booking', formData)
-console.log(response, 'ok mama');
+    try {
+      const response = await axios.post('/api/booking', formData)
+      console.log(response, 'ok mama');
 
-if(response?.data?.data?.insertedId){
-    toast.success('Booking added sucessfully')
-    setLoading(false)
-}
-else{
-    setLoading(false)
-    toast.error('something went wrong plz try again')
-}
-} catch (error) {
-    toast.error(error?.message)
-}
+      if (response?.data?.data?.insertedId) {
+        toast.success('Booking added sucessfully')
+        setLoading(false)
+      }
+      else {
+        setLoading(false)
+        toast.error('something went wrong plz try again')
+      }
+    } catch (error) {
+      toast.error(error?.message)
+    }
 
 
   };
@@ -95,7 +96,7 @@ else{
       className="max-w-5xl mx-auto p-6 rounded-lg shadow-md"
       style={{ backgroundColor: '#ab8965', color: 'black' }}
     >
-        <ToastContainer/>
+      <ToastContainer />
       <h2 className="text-2xl font-bold text-center mb-6">Add Booking</h2>
 
       {/* Name, Email, Phone, Room Number */}
@@ -124,12 +125,12 @@ else{
           />
         </div>
         {/* Room Number Field */}
-        <div>
-          <label className="block text-sm mb-2">Room Number</label>
+        <div className=''>
+          <label className="block text-sm mb-2">Booker Name</label>
           <input
             type="text"
-            value={formData.roomNumber}
-            onChange={(e) => handleInputChange('roomNumber', e.target.value)}
+            value={formData.booker}
+            onChange={(e) => handleInputChange('booker', e.target.value)}
             className="w-full p-2 rounded-md text-black"
             required
           />
@@ -225,7 +226,7 @@ else{
         className={`w-full py-2 rounded-md ${loading && 'bg-white text-gray-500'} font-bold`}
         style={{ backgroundColor: 'black', color: '#ab8965' }}
       >
-    { loading?'loading...' : "Add Booaking" }
+        {loading ? 'loading...' : "Add Booaking"}
       </button>
     </form>
   );
