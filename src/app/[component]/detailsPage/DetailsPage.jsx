@@ -129,7 +129,7 @@ const DetailsPage = ({ params }) => {
                      
                     <RoomGallery data={data} loader={loader} />
 
-                    <div className='flex flex-col md:flex-row gap-3'>
+                    <div className='flex max-w-[1400px] mx-auto flex-col md:flex-row gap-3'>
                         <RoomDescription data={data} loader={loader} />
                         <BookingCard data={data} loader={loader} />
                     </div>

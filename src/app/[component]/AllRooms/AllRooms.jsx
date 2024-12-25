@@ -154,7 +154,7 @@
 
 
 
-
+// // this okay
 
 
 'use client';
@@ -164,9 +164,13 @@ import { FaAngleRight } from 'react-icons/fa6';
 import axios from 'axios';
 import Loader from '../loader/Loader';
 import { TbCurrencyTaka } from "react-icons/tb";
+import { useRouter } from 'next/navigation';
 
 
 const AllRooms = ({ getRooms }) => {
+  const router=useRouter()
+  console.log();
+  
   const [rooms, setRooms] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
@@ -305,3 +309,6 @@ const AllRooms = ({ getRooms }) => {
 };
 
 export default AllRooms;
+
+
+

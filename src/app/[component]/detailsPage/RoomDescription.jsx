@@ -17,16 +17,17 @@ const RoomDescription = ({ data, loader }) => {
       <div>
         <div
           className="mt-4"
-          dangerouslySetInnerHTML={{ __html: data.description }}
-        />
+         > 
+         {data?.description}
+         </div>
       </div>
 
       {/* <a href="#" className="text-blue-500 underline">See more</a> */}
-      <div className="mt-6 flex justify-between items-center">
+      <div className="mt-6 flex gap-6 items-center">
         {/* Guest Section */}
         <div className="text-center">
           <div className="flex items-center justify-center gap-2 text-xl font-semibold">
-            <FaUsers className="text-pink-600" />
+            <FaUsers className="text-[#ab8965]" />
             <span>{Number(data?.adults) + Number(data?.childs) || ''}</span>
           </div>
           <div className="text-gray-500">Guests</div>
@@ -34,7 +35,7 @@ const RoomDescription = ({ data, loader }) => {
         {/* Bedrooms Section */}
         <div className="text-center">
           <div className="flex items-center justify-center gap-2 text-xl font-semibold">
-            <FaDoorClosed className="text-pink-600" />
+            <FaDoorClosed className="text-[#ab8965]" />
             <span>{data?.bedrooms}</span>
           </div>
           <div className="text-gray-500">Bedrooms</div>
@@ -42,7 +43,7 @@ const RoomDescription = ({ data, loader }) => {
         {/* Bed Section */}
         <div className="text-center">
           <div className="flex items-center justify-center gap-2 text-xl font-semibold">
-            <FaBed className="text-pink-600" />
+            <FaBed className="text-[#ab8965]" />
             <span>{data?.beds}</span>
           </div>
           <div className="text-gray-500">Bed</div>
@@ -50,7 +51,7 @@ const RoomDescription = ({ data, loader }) => {
         {/* Bathrooms Section */}
         <div className="text-center">
           <div className="flex items-center justify-center gap-2 text-xl font-semibold">
-            <FaBath className="text-pink-600" />
+            <FaBath className="text-[#ab8965]" />
             <span>{data?.washrooms || ''}</span>
           </div>
           <div className="text-gray-500">Bathrooms</div>
