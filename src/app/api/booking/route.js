@@ -9,10 +9,13 @@ export const POST=async (request)=>{
    try {
     const data=await request.json();
 
+    console.log(data);
+    
 
     const db = await connectDB();
     const projectCollation = db.collection('booking');
   
+
    
    const add= await projectCollation.insertOne(data);
    console.log(add, "booking add hoise to");

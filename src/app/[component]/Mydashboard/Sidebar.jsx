@@ -116,14 +116,14 @@ const Sidebar = ({ isCollapsed, showMobileSidebar, handlePageChange }) => {
 
   return (
     <div
-      className={`bg-gray-900 text-white h-screen flex flex-col fixed md:relative z-50 transition-all duration-300 
+      className={`bg-gray-900 text-white h-screen  flex flex-col fixed md:relative z-50 transition-all duration-300 
         ${isCollapsed ? 'w-16' : 'w-64'} 
         ${showMobileSidebar ? 'left-0' : '-left-64'} md:left-0`}
     >
       {/* Logo */}
       <div className={`flex items-center justify-center mt-10 ${isCollapsed && 'hidden'}`}>
         <div className="text-2xl font-bold text-green-500">
-          Seven<span className="text-white">Hotel</span>
+           Hotel <span className="text-white">Seven View</span>
         </div>
       </div>
 
@@ -135,7 +135,7 @@ const Sidebar = ({ isCollapsed, showMobileSidebar, handlePageChange }) => {
           className="rounded-full w-12 h-12"
         />
         <div className="ml-4">
-          <div className="text-sm font-semibold">Jhon Doye</div>
+          <div className="text-sm font-semibold">Admin</div>
         </div>
       </div>
 

@@ -12,6 +12,9 @@ const Footer = () => {
   const pathname = usePathname();
   
   
+  
+  // Skip rendering for certain paths
+  if (pathname.startsWith('/mydashboard')) return null;
   // If the current pathname contains '/admin', do not render the footer
   if (pathname.includes('/admin' || '/login')) {
     return null;
@@ -96,37 +99,14 @@ const Footer = () => {
           <p className="text-sm mb-4">Connect with us on social media:</p>
           <div className="flex space-x-4">
             <a
-              href="https://facebook.com"
+              href="https://www.facebook.com/hotelsevenview"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-300 hover:text-[#ab8965]"
             >
               <FaFacebookF size={24} />
             </a>
-            <a
-              href="https://twitter.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-300 hover:text-[#ab8965]"
-            >
-              <FaTwitter size={24} />
-            </a>
-            <a
-              href="https://instagram.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-300 hover:text-[#ab8965]"
-            >
-              <FaInstagram size={24} />
-            </a>
-            <a
-              href="https://linkedin.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-300 hover:text-rose-500"
-            >
-              <FaLinkedinIn size={24} />
-            </a>
+          
           </div>
         </div>
       </div>

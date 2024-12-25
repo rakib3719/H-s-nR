@@ -72,6 +72,8 @@
 
 import React, { useEffect, useState } from "react";
 import { FaCalendarAlt, FaDollarSign, FaUser } from "react-icons/fa";
+import { FaBangladeshiTakaSign } from "react-icons/fa6";
+
 
 const StatsCards = () => {
   const [loading, setLoading] = useState(true)
@@ -127,7 +129,7 @@ const StatsCards = () => {
       id: 2,
       title: "TOTAL AMOUNT",
       value: `$${stats.totalAmount}`,
-      icon: <FaDollarSign className="text-white text-2xl" />, // Icon
+      icon: <FaBangladeshiTakaSign className="text-white text-2xl" />, // Icon
       bgColor: "bg-green-500", // Background color
     },
     {
