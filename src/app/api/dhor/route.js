@@ -4,9 +4,10 @@ import { NextResponse } from "next/server";
 export async function GET() {
   try {
     // Connect to the database
+    
     const db = await connectDB();
     const bookingsCollection = db.collection("booking");
-
+//    await bookingsCollection.deleteMany()
     // Fetch all documents from the collection
     const bookings = await bookingsCollection.find({}).toArray();
 

@@ -530,6 +530,7 @@ const BookingCard = ({ data }) => {
       message,
       status: 'pending',
     };
+console.log(bookingDetails);
 
     setLoading(true); // Set loading to true when submitting the form
 
