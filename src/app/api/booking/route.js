@@ -17,7 +17,7 @@ export const POST=async (request)=>{
   
 
    
-   const add= await projectCollation.insertOne(data);
+   const add= await projectCollation.insertOne({...data,  createdAt: new Date()});
    console.log(add, "booking add hoise to");
    if (add) {
     return NextResponse.json({ message: 'Projects added successfully', data:add, }, { status: 200 });

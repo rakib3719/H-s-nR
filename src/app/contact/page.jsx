@@ -132,18 +132,19 @@ const ContactPage = () => {
                         <div>
                             <h3 className="text-lg font-medium text-gray-700">Address:</h3>
                             <p className="text-gray-600">
-                                Via Serlas 27, 7500 St. Moritz, Switzerland
+                            Rajlokkhi, Uttara, Dhaka, Bangladesh, 1230
+
                             </p>
                         </div>
                         <div>
                             <h3 className="text-lg font-medium text-gray-700">General Inquiries:</h3>
-                            <p className="text-gray-600">+56 3434 344</p>
-                            <p className="text-gray-600">contact@hoteller.com</p>
+                            <p className="text-gray-600">01825-791133</p>
+                            <p className="text-gray-600">hotelsevenview.official@gmail.com</p>
                         </div>
                         <div>
                             <h3 className="text-lg font-medium text-gray-700">Hoteller Spa:</h3>
-                            <p className="text-gray-600">+56 3434 345</p>
-                            <p className="text-gray-600">spa@hoteller.com</p>
+                            <p className="text-gray-600">01825-791133</p>
+                            <p className="text-gray-600">hotelsevenview.official@gmail.com</p>
                         </div>
                     </div>
                 </div>
