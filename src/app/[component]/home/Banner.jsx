@@ -1,13 +1,5 @@
 
 
-
-
-
-
-
-
-
-
 'use client';
 
 import { useState } from 'react';
@@ -53,10 +45,10 @@ const Banner = () => {
     //   alert('Please fill in all required fields.');
     //   return;
     // }
-  
+
     // Set loading state to true while fetching data
     setLoading(true);
-  
+
     const response = await fetch('/api/search', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -66,7 +58,7 @@ const Banner = () => {
         guests,
       }),
     });
-  
+
     const data = await response.json();
     if (data.error) {
       console.log('Error:', data.error);
@@ -74,7 +66,7 @@ const Banner = () => {
     } else {
       // Navigate to allrooms route with query parameters or pass data through router
       console.log('Search Results:', data);
-  
+
       // Option 1: Passing data through URL (query parameters)
       const query = {
         startDate: format(startDate, 'yyyy-MM-dd'),
@@ -82,16 +74,16 @@ const Banner = () => {
         guests: JSON.stringify(guests), // Pass guests data as string
         results: JSON.stringify(data), // Pass search results
       };
-  
+
       // Use URLSearchParams to convert query to a valid URL format
       const queryString = new URLSearchParams(query).toString();
-  
+
       router.push(`/allroom?${queryString}`);
-  
+
       setLoading(false); // Stop loading after navigation
     }
   };
-  
+
 
   return (
     <div className="relative bg-[#fff5ed] overflow-hidden">
@@ -158,7 +150,7 @@ const Banner = () => {
 
         {/* Search Button */}
         <button
-          className="bg-[#ff217a] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#e91e63] transition-all w-full lg:w-auto"
+          className="bg-[#ab8965] text-white  px-6 py-3 rounded-lg font-semibold hover:bg-[#e91e63] transition-all w-full lg:w-auto"
           onClick={handleSearch}
         >
           {loading ? 'Searching...' : 'Search'}
@@ -191,7 +183,7 @@ const Banner = () => {
               </div>
             ))}
             <button
-              className="bg-[#ff217a] text-white py-2 rounded-md font-semibold hover:bg-[#e91e63] transition-all w-full"
+              className="bg-[#ab8965] text-white py-2 rounded-md font-semibold hover:bg-[#e91e63] transition-all w-full"
               onClick={closeGuestModal}
             >
               Done
@@ -218,7 +210,7 @@ const Banner = () => {
               calendarClassName='w-full'
             />
             <button
-              className="mt-4 w-full bg-[#ff217a] text-white py-2 rounded-md font-semibold hover:bg-[#e91e63] transition-all"
+              className="mt-4 w-full bg-[#ab8965] text-white py-2 rounded-md font-semibold hover:bg-[#e91e63] transition-all"
               onClick={closeDateModal}
             >
               Done
@@ -231,6 +223,7 @@ const Banner = () => {
 };
 
 export default Banner;
+
 
 
 

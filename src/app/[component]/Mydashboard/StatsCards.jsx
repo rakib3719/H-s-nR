@@ -145,7 +145,7 @@ const StatsCards = () => {
 
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 p-4 bg-gray-100">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-4 bg-gray-100">
       {statsData.map((stat) => (
         <div
           key={stat.id}

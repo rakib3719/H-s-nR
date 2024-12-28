@@ -561,7 +561,7 @@ console.log(bookingDetails);
       {/* Rent Sale Section */}
       <div className="text-center">
         <h2 className="text-gray-500 text-sm font-medium">Rent Sale</h2>
-        <p className="text-pink-500 text-2xl font-bold mt-2">
+        <p className="text-[#ab8965] text-2xl font-bold mt-2">
           BDT {data.price}
           <span className="text-base font-normal text-gray-600">/{data?.price % 2 !== 0 ? 'day' : 'night'}</span>
         </p>
@@ -663,7 +663,7 @@ console.log(bookingDetails);
             {/* Done Button */}
             <button
               onClick={() => setShowGuestModal(false)}
-              className="mt-4 w-full py-2 bg-pink-500 text-white text-sm font-medium rounded-lg hover:bg-pink-600 transition"
+              className="mt-4 w-full py-2 bg-[#ab8965] text-white text-sm font-medium rounded-lg hover:bg-pink-600 transition"
             >
               Done
             </button>
@@ -745,7 +745,7 @@ console.log(bookingDetails);
       <button
         onClick={handleBooking}
         disabled={loading} // Disable the button if loading is true
-        className={`w-full py-2 mt-4 text-white font-medium rounded-lg ${loading ? "bg-gray-400" : "bg-pink-500 hover:bg-pink-600"
+        className={`w-full py-2 mt-4 text-white font-medium rounded-lg ${loading ? "bg-gray-400" : "bg-[#ab8965] hover:bg-pink-600"
           }`}
       >
         {loading ? "Processing..." : "BOOK NOW"}
