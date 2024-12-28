@@ -167,7 +167,7 @@ import { TbCurrencyTaka } from "react-icons/tb";
 import { useRouter } from 'next/navigation';
 
 
-const AllRooms = ({ getRooms }) => {
+const AllRooms = () => {
   const router=useRouter()
   console.log();
   
