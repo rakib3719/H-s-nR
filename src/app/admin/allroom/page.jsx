@@ -12,7 +12,7 @@ import { MdBrowserUpdated } from "react-icons/md";
 import Loader from '@/app/[component]/loader/Loader';
 
 const fetchRooms = async () => {
-  const response = await fetch('/api/room');
+  const response = await fetch('/api/dashroom');
   if (!response.ok) {
     throw new Error('Failed to fetch rooms');
   }
@@ -54,10 +54,10 @@ const AllRoomsInAdmin = () => {
 
     const data = {
       name: form.name.value,
-      roomNumber: form.roomNumber.value,
-      roomSize: form.roomSize.value,
+      price: form.price.value,
+     
       maxCapacity: form.maxCapacity.value,
-      squareFeet: form.squareFeet.value,
+  
       washrooms: form.washrooms.value,
    
       description: form.description.value,
@@ -143,14 +143,14 @@ const AllRoomsInAdmin = () => {
   const rooms = data.data;
 
   return (
-    <div className="min-h-screen bg-gray-100 py-12">
+    <div className="man-h-screen bg-gray-100 ">
       <ToastContainer />
-      <div className="max-w-7xl mx-auto lg:px-6 py-12">
+      <div className="max-w-7xl mx-auto lg:px-6">
         <motion.h1
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
-          className= "text-xl md:text-4xl font-extrabold text-gray-900 text-center mb-12"
+          className= "text-xl md:text-4xl font-extrabold text-gray-900 text-center"
         >
           Manage Rooms
         </motion.h1>
@@ -161,7 +161,7 @@ const AllRoomsInAdmin = () => {
               <tr>
                 <th className="py-3 md:px-6 text-left text-lg font-semibold text-black">Room Name</th>
                 
-                <th className="py-3 md:px-6 text-left text-lg font-semibold text-black">Room Number</th>
+                <th className="py-3 md:px-6 text-left text-lg font-semibold text-black">Room Price</th>
                 <th className="py-3 md:px-6 text-left text-lg font-semibold text-black">Actions</th>
               </tr>
             </thead>
@@ -170,7 +170,7 @@ const AllRoomsInAdmin = () => {
                 <tr key={room._id} className="border-b hover:bg-gray-100">
                   <td className="py-4 text-black md:px-6">{room.name}</td>
                   
-                  <td className="py-4 text-black px-6">{room.roomNumber}</td>
+                  <td className="py-4 text-black px-6">{room.price}</td>
                   <td className="py-4 flex gap-2 px-6">
                     <button
                       onClick={() => openModal(room)}
@@ -209,23 +209,15 @@ const AllRoomsInAdmin = () => {
                 />
               </div>
               <div className="mb-4">
-                <label className="block text-lg text-gray-700">Room Number</label>
+                <label className="block text-lg text-gray-700">Room Price</label>
                 <input
-                  type="text"
-                  name="roomNumber"
-                  defaultValue={currentRoom.roomNumber || ''}
+                  type="number"
+                  name="price"
+                  defaultValue={currentRoom.price || ''}
                   className="mt-2 w-full p-4 border-2 border-gray-300 rounded-lg bg-gray-50 text-black"
                 />
               </div>
-              <div className="mb-4">
-                <label className="block text-lg text-gray-700">Room Size</label>
-                <input
-                  type="text"
-                  name="roomSize"
-                  defaultValue={currentRoom.roomSize || ''}
-                  className="mt-2 w-full p-4 border-2 border-gray-300 rounded-lg bg-gray-50 text-black"
-                />
-              </div>
+             
               <div className="mb-4">
                 <label className="block text-lg text-gray-700">Max Capacity</label>
                 <input
@@ -235,15 +227,7 @@ const AllRoomsInAdmin = () => {
                   className="mt-2 w-full p-4 border-2 border-gray-300 rounded-lg bg-gray-50 text-black"
                 />
               </div>
-              <div className="mb-4">
-                <label className="block text-lg text-gray-700">Square Feet</label>
-                <input
-                  type="text"
-                  name="squareFeet"
-                  defaultValue={currentRoom.squareFeet || ''}
-                  className="mt-2 w-full p-4 border-2 border-gray-300 rounded-lg bg-gray-50 text-black"
-                />
-              </div>
+             
               <div className="mb-4">
                 <label className="block text-lg text-gray-700">Washrooms</label>
                 <input

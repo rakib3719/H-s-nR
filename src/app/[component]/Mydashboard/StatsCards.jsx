@@ -72,9 +72,11 @@
 
 import React, { useEffect, useState } from "react";
 import { FaCalendarAlt, FaDollarSign, FaUser } from "react-icons/fa";
+import { FaBangladeshiTakaSign } from "react-icons/fa6";
+
 
 const StatsCards = () => {
-    const [loading,setLoading]=useState(true)
+  const [loading, setLoading] = useState(true)
   const [stats, setStats] = useState({
     totalToday: 0,
     totalAmount: 0,
@@ -91,7 +93,7 @@ const StatsCards = () => {
       } catch (error) {
         console.error("Error fetching stats:", error);
       }
-      finally{
+      finally {
         setLoading(setLoading(false))
       }
     };
@@ -100,7 +102,19 @@ const StatsCards = () => {
   }, []);
 
   if (loading) {
-    return 'data is loading..'
+    return <div className="flex items-center justify-center h-screen ">
+      <div className="relative w-24 h-24">
+        {/* Rotating Outer Circle */}
+        <div className="absolute inset-0 border-4 border-t-rose-300 border-rose-700 rounded-full animate-spin"></div>
+
+        {/* Inner Hotel Icon */}
+        <div className="absolute inset-4 flex flex-col items-center justify-center bg-white rounded-full">
+          <div className="w-8 h-8 bg-yellow-500 rounded-b-md"></div>
+          <div className="w-10 h-4 bg-rose-500 rounded-t-md"></div>
+          <div className="mt-2 text-center text-xs font-semibold text-gray-900">HOTEL</div>
+        </div>
+      </div>
+    </div>
   }
 
   const statsData = [
@@ -115,7 +129,7 @@ const StatsCards = () => {
       id: 2,
       title: "TOTAL AMOUNT",
       value: `$${stats.totalAmount}`,
-      icon: <FaDollarSign className="text-white text-2xl" />, // Icon
+      icon: <FaBangladeshiTakaSign className="text-white text-2xl" />, // Icon
       bgColor: "bg-green-500", // Background color
     },
     {
@@ -128,10 +142,10 @@ const StatsCards = () => {
   ];
 
 
-  
+
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 p-4 bg-gray-100">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-4 bg-gray-100">
       {statsData.map((stat) => (
         <div
           key={stat.id}

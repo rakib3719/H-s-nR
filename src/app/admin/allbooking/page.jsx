@@ -38,13 +38,14 @@ const BookingTable = () => {
     queryKey: ['bookings', page, statusFilter],
     queryFn: () => fetchBookings(page, statusFilter),
   });
+  console.log(selectedBooking);
 
   // Handle status change for bookings
   const handleStatusChange = async (id, newStatus) => {
     alert(id)
     try {
-   
-   
+
+
       const response = await axios.patch(`/api/booking/${id}`, { status: newStatus });
       console.log(response, "update data");
       refetch()
@@ -61,7 +62,7 @@ const BookingTable = () => {
   };
 
   if (isLoading) return <div>
-    <Loader/>
+    <Loader />
   </div>;
   if (isError) return <p>Error fetching bookings</p>;
 
@@ -76,9 +77,8 @@ const BookingTable = () => {
           <button
             key={status}
             onClick={() => setStatusFilter(status)}
-            className={`px-4 py-2 mr-2 rounded-lg ${
-              statusFilter === status ? 'bg-yellow-500 text-white' : 'bg-gray-200'
-            }`}
+            className={`px-4 py-2 mr-2 rounded-lg ${statusFilter === status ? 'bg-yellow-500 text-white' : 'bg-gray-200'
+              }`}
           >
             {status.charAt(0).toUpperCase() + status.slice(1)}
           </button>
@@ -109,7 +109,7 @@ const BookingTable = () => {
                         onClick={() => handleStatusChange(booking._id, 'accept')}
                         className="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600"
                       >
-                <IoIosCheckbox />
+                        <IoIosCheckbox />
                       </button>
                     )}
                     {booking.status === 'accept' && (
@@ -117,14 +117,14 @@ const BookingTable = () => {
                         onClick={() => handleStatusChange(booking._id, 'completed')}
                         className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-blue-600"
                       >
-                    <IoMdClose />
+                        <IoMdClose />
                       </button>
                     )}
                     <button
                       onClick={() => handleViewDetails(booking)}
                       className="px-4 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-600"
                     >
-                      <FcViewDetails/>
+                      <FcViewDetails />
                     </button>
                   </td>
                 </tr>
@@ -162,21 +162,22 @@ const BookingTable = () => {
         <div className="fixed z-50 inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50">
           <div className="bg-white text-black p-6 rounded-lg shadow-lg w-96">
             <h2 className="text-xl font-semibold mb-4">Booking Details</h2>
-            <p><strong>Name:</strong> {selectedBooking.name}</p>
-            <p><strong>Room Number:</strong> {selectedBooking.roomNumber}</p>
+            <p><strong>Room Name:</strong> {selectedBooking.name}</p>
+            {selectedBooking.roomNumber && <p><strong>Room Number:</strong> {selectedBooking.roomNumber}</p>}
             <p><strong>Status:</strong> {selectedBooking.status}</p>
+         { selectedBooking.booker &&  <p><strong>Room Booker:</strong> {selectedBooking.booker}</p>}
             <p><strong>Email:</strong> {selectedBooking.email}</p>
-            <p><strong>Phone:</strong> {selectedBooking.phone}</p>
+            <p><strong>Phone:</strong> {selectedBooking.phone || selectedBooking.phoneNumber}</p>
             <p><strong>Check-In Date:</strong> {new Date(selectedBooking.checkInDate).toLocaleString()}</p>
             <p><strong>Check-Out Date:</strong> {new Date(selectedBooking.checkOutDate).toLocaleString()}</p>
             <p><strong>Price Per Room:</strong> ${selectedBooking.pricePerRoom}</p>
-            <p><strong>Adults:</strong> {selectedBooking.adults}</p>
-            <p><strong>Children:</strong> {selectedBooking.children}</p>
-            <p><strong>Rooms:</strong> {selectedBooking.rooms}</p>
-            <p><strong>Extra Beds:</strong> {selectedBooking.extraBeds}</p>
-            <p><strong>Services:</strong></p>
+            <p><strong>Adults:</strong> {selectedBooking.adults || selectedBooking?.guests.adults}</p>
+            <p><strong>Children:</strong> {selectedBooking.children || selectedBooking?.guests.children}</p>
+            {selectedBooking.rooms && <p><strong>Rooms:</strong> {selectedBooking?.rooms}</p>}
+            {selectedBooking.extraBeds && <p><strong>Extra Beds:</strong> {selectedBooking.extraBeds}</p>}
+            {selectedBooking.services && <p><strong>Services:</strong></p>}
             <ul>
-              {Object.entries(selectedBooking.services).map(([key, value]) => (
+              {selectedBooking.services && Object.entries(selectedBooking.services).map(([key, value]) => (
                 <li key={key}>
                   {key.charAt(0).toUpperCase() + key.slice(1)}: {value ? 'Yes' : 'No'}
                 </li>

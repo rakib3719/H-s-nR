@@ -491,11 +491,12 @@ const BookingCard = ({ data }) => {
   const [checkInDate, setCheckInDate] = useState(defaultCheckInDate);
   const [checkOutDate, setCheckOutDate] = useState(defaultCheckOutDate);
   const [guests, setGuests] = useState({
-    adults: 0,
-    children: 0,
+    adults: Number(data?.adults)  || 0,
+    children: Number(data?.childs ) ||0,
   });
   const [email, setEmail] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
+  const [booker, setbooker] = useState("");
   const [message, setMessage] = useState("");
   const [showGuestModal, setShowGuestModal] = useState(false);
   const [loading, setLoading] = useState(false); // Loading state
@@ -512,15 +513,24 @@ const BookingCard = ({ data }) => {
 
   const handleBooking = async () => {
     const bookingDetails = {
-      pricePerRoom:data?.price||10000,
+      name:data?.name ||'',
+      roomNumber:data?.roomNumber ||'',
+      roomSize:data?.roomSize ||'',
+      squareFeet:data?.squareFeet ||'',
+      washrooms:data?.washrooms ||'',
+      bookedRoomId:data?._id ||'er67657624234t3432432e56767r',
+      maxCapacity:data?.maxCapacity||'',
+      pricePerRoom: data?.price || 10000,
       checkInDate,
       checkOutDate,
       guests,
+      booker,
       email,
       phoneNumber,
       message,
       status: 'pending',
     };
+console.log(bookingDetails);
 
     setLoading(true); // Set loading to true when submitting the form
 
@@ -551,9 +561,9 @@ const BookingCard = ({ data }) => {
       {/* Rent Sale Section */}
       <div className="text-center">
         <h2 className="text-gray-500 text-sm font-medium">Rent Sale</h2>
-        <p className="text-pink-500 text-2xl font-bold mt-2">
+        <p className="text-[#ab8965] text-2xl font-bold mt-2">
           BDT {data.price}
-          <span className="text-base font-normal text-gray-600">/day</span>
+          <span className="text-base font-normal text-gray-600">/{data?.price % 2 !== 0 ? 'day' : 'night'}</span>
         </p>
       </div>
 
@@ -653,7 +663,7 @@ const BookingCard = ({ data }) => {
             {/* Done Button */}
             <button
               onClick={() => setShowGuestModal(false)}
-              className="mt-4 w-full py-2 bg-pink-500 text-white text-sm font-medium rounded-lg hover:bg-pink-600 transition"
+              className="mt-4 w-full py-2 bg-[#ab8965] text-white text-sm font-medium rounded-lg hover:bg-pink-600 transition"
             >
               Done
             </button>
@@ -662,12 +672,34 @@ const BookingCard = ({ data }) => {
       </div>
 
       {/* Email and Phone Number Inputs */}
+
+      <div className="flex flex-col space-y-4 mt-4">
+        <div>
+          <label htmlFor="booker" className="block text-sm font-medium text-gray-700">
+            Name
+          </label>
+          <input
+            required
+            type="text"
+            name="booker"
+            id="booker"
+            placeholder="Enter your name"
+            value={booker}
+            onChange={(e) => setbooker(e.target.value)}
+            className="mt-1 block w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-pink-500 focus:border-pink-500"
+          />
+        </div>
+
+        
+      </div>
+
       <div className="flex flex-col space-y-4 mt-4">
         <div>
           <label htmlFor="email" className="block text-sm font-medium text-gray-700">
             Email
           </label>
           <input
+            required
             type="email"
             name="email"
             id="email"
@@ -683,6 +715,7 @@ const BookingCard = ({ data }) => {
             Phone Number
           </label>
           <input
+            required
             type="tel"
             name="phoneNumber"
             id="phoneNumber"
@@ -712,9 +745,8 @@ const BookingCard = ({ data }) => {
       <button
         onClick={handleBooking}
         disabled={loading} // Disable the button if loading is true
-        className={`w-full py-2 mt-4 text-white font-medium rounded-lg ${
-          loading ? "bg-gray-400" : "bg-pink-500 hover:bg-pink-600"
-        }`}
+        className={`w-full py-2 mt-4 text-white font-medium rounded-lg ${loading ? "bg-gray-400" : "bg-[#ab8965] hover:bg-pink-600"
+          }`}
       >
         {loading ? "Processing..." : "BOOK NOW"}
       </button>

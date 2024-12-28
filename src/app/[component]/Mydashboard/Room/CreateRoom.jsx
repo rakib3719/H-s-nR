@@ -353,6 +353,7 @@ const CreateRoom = () => {
   const [loader, setLoader] = useState(false);
   const [availableFrom, setAvailableFrom] = useState(null);
   const [availableTo, setAvailableTo] = useState(null);
+  const [washrooms,setWashrooms]=useState('')
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -374,8 +375,6 @@ const CreateRoom = () => {
       // Prepare form data
       const data = {
         name: form.name.value,
-        roomNumber: form.roomNumber.value,
-        roomSize: form.roomSize.value,
         price: form.price.value,
         bedrooms:form.bedrooms.value,
 
@@ -383,8 +382,8 @@ const CreateRoom = () => {
         childs:form.childs.value,
         beds:form.beds.value,        
         maxCapacity: form.maxCapacity.value,
-        squareFeet: form.squareFeet.value,
-        washrooms: form.washrooms.value,
+      
+        washrooms,
         amenities: Array.from(form.amenities)
           .filter((input) => input.checked)
           .map((input) => input.value),
@@ -460,7 +459,7 @@ const CreateRoom = () => {
                   className="mt-2 w-full p-4 border-2 border-gray-300 rounded-lg bg-gray-50 text-gray-900 focus:ring-2 focus:ring-yellow-500"
                 />
               </div>
-              <div className='mb-4'>
+              {/* <div className='mb-4'>
                 <label className="block  text-xl font-medium text-gray-700">Room Number</label>
                 <input
                   type="text"
@@ -469,7 +468,7 @@ const CreateRoom = () => {
                   placeholder="e.g., 300 sq.ft."
                   className="mt-2 w-full p-4 border-2 border-gray-300 rounded-lg bg-gray-50 text-gray-900 focus:ring-2 focus:ring-yellow-500"
                 />
-              </div>
+              </div> */}
             </div>
 
             {/* Front Image */}
@@ -498,16 +497,6 @@ const CreateRoom = () => {
             {/* Room Details */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div>
-                <label className="block text-xl font-medium text-gray-700">Room Size</label>
-                <input
-                  type="text"
-                  name="roomSize"
-                  required
-                  placeholder="e.g., 25 sqm"
-                  className="mt-2 w-full p-4 border-2 border-gray-300 rounded-lg bg-gray-50 text-gray-900 focus:ring-2 focus:ring-yellow-500"
-                />
-              </div>
-              <div>
                 <label className="block text-xl font-medium text-gray-700">Maximum Capacity</label>
                 <input
                   type="number"
@@ -517,7 +506,7 @@ const CreateRoom = () => {
                   className="mt-2 w-full p-4 border-2 border-gray-300 rounded-lg bg-gray-50 text-gray-900 focus:ring-2 focus:ring-yellow-500"
                 />
               </div>
-              <div>
+              {/* <div>
                 <label className="block text-xl font-medium text-gray-700">Square Feet</label>
                 <input
                   type="text"
@@ -526,8 +515,8 @@ const CreateRoom = () => {
                   placeholder="e.g., 300 sq.ft."
                   className="mt-2 w-full p-4 border-2 border-gray-300 rounded-lg bg-gray-50 text-gray-900 focus:ring-2 focus:ring-yellow-500"
                 />
-              </div>
-              <div>
+              </div> */}
+              {/* <div>
                 <label className="block text-xl font-medium text-gray-700">Number of Washrooms</label>
                 <input
                   type="number"
@@ -535,13 +524,13 @@ const CreateRoom = () => {
                   required
                   className="mt-2 w-full p-4 border-2 border-gray-300 rounded-lg bg-gray-50 text-gray-900 focus:ring-2 focus:ring-yellow-500"
                 />
-              </div>
+              </div> */}
               <div>
                 <label className="block text-xl font-medium text-gray-700">Number of Bedrooms</label>
                 <input
                   type="number"
                   name="bedrooms"
-                  required
+               
                   className="mt-2 w-full p-4 border-2 border-gray-300 rounded-lg bg-gray-50 text-gray-900 focus:ring-2 focus:ring-yellow-500"
                 />
               </div>
@@ -550,7 +539,7 @@ const CreateRoom = () => {
                 <input
                   type="number"
                   name="beds"
-                  required
+               
                   className="mt-2 w-full p-4 border-2 border-gray-300 rounded-lg bg-gray-50 text-gray-900 focus:ring-2 focus:ring-yellow-500"
                 />
               </div>
@@ -618,21 +607,22 @@ const CreateRoom = () => {
                      className="mt-2 w-full p-4 border-2 border-gray-300 rounded-lg bg-gray-50 text-gray-900 focus:ring-2 focus:ring-yellow-500"
                    /> */}
               </div>
-              <div>
+              {/* <div>
                 <label className="block text-xl font-medium text-gray-700">Square Feet</label>
                 <input
                   type="text"
-                  name="squareFeet"
-                  required
+                
+                  onChange={(event)=> setsquareFeet(event.target.value)}
+                  
                   placeholder="e.g., 300 sq.ft."
                   className="mt-2 w-full p-4 border-2 border-gray-300 rounded-lg bg-gray-50 text-gray-900 focus:ring-2 focus:ring-yellow-500"
                 />
-              </div>
+              </div> */}
               <div>
                 <label className="block text-xl font-medium text-gray-700">Number of Washrooms</label>
                 <input
                   type="number"
-                  name="washrooms"
+                  onChange={(event)=> setWashrooms(event.target.value)}
                   required
                   className="mt-2 w-full p-4 border-2 border-gray-300 rounded-lg bg-gray-50 text-gray-900 focus:ring-2 focus:ring-yellow-500"
                 />

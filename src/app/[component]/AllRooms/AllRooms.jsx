@@ -154,7 +154,7 @@
 
 
 
-
+// // this okay
 
 
 'use client';
@@ -164,9 +164,13 @@ import { FaAngleRight } from 'react-icons/fa6';
 import axios from 'axios';
 import Loader from '../loader/Loader';
 import { TbCurrencyTaka } from "react-icons/tb";
+import { useRouter } from 'next/navigation';
 
 
-const AllRooms = ({ getRooms }) => {
+const AllRooms = () => {
+  const router=useRouter()
+  console.log();
+  
   const [rooms, setRooms] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
@@ -253,7 +257,7 @@ const AllRooms = ({ getRooms }) => {
                   {room.name}
                 </h1>
                 <p className="text-gray-600 mt-2 text-lg flex items-center justify-center">
-                 <TbCurrencyTaka/> {room.price} / Night
+                 <TbCurrencyTaka/> {room.price} / {room?.price % 2 !== 0 ? 'day' : 'night'}
                 </p>
                 <Link href={`/details/${room._id}`}>
                   <button
@@ -305,3 +309,6 @@ const AllRooms = ({ getRooms }) => {
 };
 
 export default AllRooms;
+
+
+

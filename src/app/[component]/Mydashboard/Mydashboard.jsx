@@ -122,11 +122,11 @@ const Mydashboard = () => {
     switch (activePage) {
       case 'Dashboard':
         return <div>
-          <h1 className="text-2xl font-semibold">Welcome to My Dashboard</h1>
+          <h1 className="text-2xl font-semibold">My Dashboard</h1>
           <StatsCards/>
         </div> ;
       case 'Add Room':
-        return <div><CreateRoom/></div>;
+        return <div className='overflow-y-scroll max-h-screen'><CreateRoom/></div>;
       case 'All Rooms':
         return <div><AllRoomsInAdmin/></div>;
       case 'Booking Management':
@@ -134,7 +134,7 @@ const Mydashboard = () => {
       case 'Add Booking':
         return <div><AddBookingForm/></div>;
       case 'Message':
-        return <div><Messagepage/></div>;
+        return <div className='overflow-y-scroll max-h-screen'><Messagepage/></div>;
       default:
         return <h1 className="text-2xl font-semibold">Page Not Found</h1>;
     }

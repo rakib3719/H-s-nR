@@ -9,12 +9,15 @@ export const POST=async (request)=>{
    try {
     const data=await request.json();
 
+    console.log(data);
+    
 
     const db = await connectDB();
     const projectCollation = db.collection('booking');
   
+
    
-   const add= await projectCollation.insertOne(data);
+   const add= await projectCollation.insertOne({...data,  createdAt: new Date()});
    console.log(add, "booking add hoise to");
    if (add) {
     return NextResponse.json({ message: 'Projects added successfully', data:add, }, { status: 200 });

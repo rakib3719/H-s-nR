@@ -41,7 +41,7 @@ const Login = () => {
                 setError(result.error); // Display the error
             } else {
                 // Redirect manually after successful login
-                window.location.href = "/admin";
+                window.location.href = "/mydashboard";
             }
         } catch (err) {
             setError("An unexpected error occurred. Please try again.");
