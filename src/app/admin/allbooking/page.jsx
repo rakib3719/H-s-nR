@@ -165,14 +165,21 @@ const BookingTable = () => {
             <p><strong>Room Name:</strong> {selectedBooking.name}</p>
             {selectedBooking.roomNumber && <p><strong>Room Number:</strong> {selectedBooking.roomNumber}</p>}
             <p><strong>Status:</strong> {selectedBooking.status}</p>
-         { selectedBooking.booker &&  <p><strong>Room Booker:</strong> {selectedBooking.booker}</p>}
+            {selectedBooking.booker && <p><strong>Room Booker:</strong> {selectedBooking.booker}</p>}
             <p><strong>Email:</strong> {selectedBooking.email}</p>
             <p><strong>Phone:</strong> {selectedBooking.phone || selectedBooking.phoneNumber}</p>
-            <p><strong>Check-In Date:</strong> {new Date(selectedBooking.checkInDate).toLocaleString()}</p>
-            <p><strong>Check-Out Date:</strong> {new Date(selectedBooking.checkOutDate).toLocaleString()}</p>
+            {/* <p><strong>Check-In Date:</strong> {new Date(selectedBooking.checkInDate).toLocaleString()}</p>
+            <p><strong>Check-Out Date:</strong> {new Date(selectedBooking.checkOutDate).toLocaleString()}</p> */}
+            <p><strong>Check-In Date:</strong> {new Date(selectedBooking.checkInDate).toLocaleDateString()}</p>
+            <p><strong>Check-Out Date:</strong> {new Date(selectedBooking.checkOutDate).toLocaleDateString()}</p>
+
             <p><strong>Price Per Room:</strong> ${selectedBooking.pricePerRoom}</p>
             <p><strong>Adults:</strong> {selectedBooking.adults || selectedBooking?.guests.adults}</p>
-            <p><strong>Children:</strong> {selectedBooking.children || selectedBooking?.guests.children}</p>
+            {/* {selectedBooking.children && <p><strong>Children::</strong> {selectedBooking?.children  ||''}</p>}
+
+           {selectedBooking.guests && <p><strong>Children:-</strong> { selectedBooking?.guests?.children ||''}</p>} */}
+          { <p><strong>Children:</strong> { selectedBooking.children?selectedBooking.children:selectedBooking.guests?.children}</p>}
+
             {selectedBooking.rooms && <p><strong>Rooms:</strong> {selectedBooking?.rooms}</p>}
             {selectedBooking.extraBeds && <p><strong>Extra Beds:</strong> {selectedBooking.extraBeds}</p>}
             {selectedBooking.services && <p><strong>Services:</strong></p>}

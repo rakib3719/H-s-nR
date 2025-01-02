@@ -14,7 +14,7 @@ try {
 
 
   // const uri = `${process.env.MONGO_URI}`
-  const uri = "mongodb+srv://hotelseven:qt8AcQVhmXa7GwYj@cluster0.oypj9vn.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+  const uri = "mongodb+srv://sevenview:Q5XLwjGIIV7XV3wY@cluster0.vsivf.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
     const client = new MongoClient(uri, {
         serverApi: {
           version: ServerApiVersion.v1,
